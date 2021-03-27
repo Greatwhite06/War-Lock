@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" name="MainTileMap" tilewidth="32" tileheight="32" tilecount="2262" columns="78">
+  <image source="MainTileMap.png" width="2496" height="928"/>
+ </tileset>
+ <layer id="1" name="Tile Layer 1" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxzY2VgcBsg3MxMXzxq76i9o/aO2jtq7+C2d6jVR0OtHoS5eaSlq1F7R+0dtXfU3qFi70BgAHOlsvk=
+  </data>
+ </layer>
+</map>
