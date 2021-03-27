@@ -4,7 +4,9 @@ import brocode.warlock.Scenes.Hud;
 import brocode.warlock.Sprites.Wizard;
 import brocode.warlock.WarLock;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -36,9 +38,12 @@ public class OfficeScreen implements Screen {
 
     //Realizes wizard character
     private Wizard player;
+    private Music music;
 
     public OfficeScreen(WarLock game){
+        atlas = new TextureAtlas("Wizard GFX/wizard_animation.pack");
         this.game = game;
+        //create cam used to follow wizard through cam world
         gamecam = new OrthographicCamera();
 
         gamePort = new FitViewport(WarLock.V_WIDTH / WarLock.PPM, WarLock.V_HEIGHT / WarLock.PPM, gamecam);
@@ -58,6 +63,14 @@ public class OfficeScreen implements Screen {
         b2dr = new Box2DDebugRenderer();
 
         player = new Wizard(this);
+
+        //music = WarLock.manager.get("file/path.mp3", Music.class);
+        //music.setLooping(true);
+        //music.play();
+    }
+
+    public TextureAtlas getAtlas(){
+        return atlas;
     }
 
     @Override
@@ -65,13 +78,27 @@ public class OfficeScreen implements Screen {
 
     }
 
+    public void handleInput(float dt){
+        if(Gdx.input.isKeyJustPressed(Input.Keys.UP))
+            player.b2body.applyLinearImpulse(new Vector2(0, 3f), player.b2body.getWorldCenter(), true);
+        if(Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
+            player.b2body.applyLinearImpulse(new Vector2(0, -3f), player.b2body.getWorldCenter(), true);
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2)
+            player.b2body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2body.getWorldCenter(), true);
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= -2)
+            player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);
+
+    }
+
     public void update(float dt){
+        handleInput(dt);
+
         //for box2d to execute our physics simulation, we must tell it how many times to calculate per second
         //velocity and position affect how two bodies interact during a collision: higher numbers = longer but more precise
         //timeStep = 1/60 = 60 times per second
         world.step(1/60f, 6, 2);
 
-        player.update(dt);
+        //player.update(dt);
 
         //hud.update(dt);
 

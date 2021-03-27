@@ -1,6 +1,7 @@
 package brocode.warlock.Tools;
 
 import brocode.warlock.Screens.OfficeScreen;
+import brocode.warlock.WarLock;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -16,6 +17,39 @@ public class WorldCreator {
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
         Body body;
+
+        for(MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            //define the type of properties our body (the ground) will contain
+            bdef.type = BodyDef.BodyType.StaticBody;
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / WarLock.PPM, (rect.getY() + rect.getHeight() / 2) / WarLock.PPM);
+
+            //add this body to our box2d world
+            body = world.createBody(bdef);
+
+            //setAsBox = define fixture
+            shape.setAsBox((rect.getWidth() / 2) / WarLock.PPM, (rect.getHeight() / 2) / WarLock.PPM);
+            fdef.shape = shape;
+            body.createFixture(fdef);
+        }
+
+        for(MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            //define the type of properties our body (the ground) will contain
+            bdef.type = BodyDef.BodyType.StaticBody;
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / WarLock.PPM, (rect.getY() + rect.getHeight() / 2) / WarLock.PPM);
+
+            //add this body to our box2d world
+            body = world.createBody(bdef);
+
+            //setAsBox = define fixture
+            shape.setAsBox((rect.getWidth() / 2) / WarLock.PPM, (rect.getHeight() / 2) / WarLock.PPM);
+            fdef.shape = shape;
+
+            body.createFixture(fdef);
+        }
     /*
         //create ground bodies/fixtures
         //the "2" in map.getLayers().get(2) references the index of the object layer in Tiled from starting from the ground up (0.background->1.graphics->*2*.ground)
