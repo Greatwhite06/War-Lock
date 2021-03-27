@@ -5,15 +5,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import org.w3c.dom.Text;
 
 public class WarLock extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
+	Texture img2;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
+		img2 = new Texture("gitpfp.jpg");
+
 	}
 
 	@Override
@@ -22,6 +26,7 @@ public class WarLock extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		batch.draw(img, 0, 0);
+		batch.draw(img2, 100, 100);
 		batch.end();
 	}
 	
