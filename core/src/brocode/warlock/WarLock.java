@@ -12,8 +12,13 @@ public class WarLock extends Game {
 	public static final int V_WIDTH = 408;
 	public static final int V_HEIGHT = 208;
 
-	//Pixels per meter: use this float (divisional reasons) to scale everything that has pixel size (positional locations, viewports, character models)
+	// Pixels per meter: use this float (divisional reasons) to scale everything that has pixel size (positional locations, viewports, character models)
 	public static final float PPM = 100;
+
+	// setup default values for filters. We are using powers of 2 for convenience
+	public static final short GROUND_BIT = 1;
+	public static final short WIZARD_BIT = 2;
+	public static final short FURNITURE_BIT = 4;
 
 	public SpriteBatch batch;
 
@@ -30,14 +35,16 @@ public class WarLock extends Game {
 	}
 
 	@Override
-	public void render() {
-		super.render();
-	}
-
-	@Override
 	public void dispose() {
 		super.dispose();
 		manager.dispose();
 		batch.dispose();
+	}
+
+
+	@Override
+	public void render() {
+		super.render();
+		manager.update();
 	}
 }

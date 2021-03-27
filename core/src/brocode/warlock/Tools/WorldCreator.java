@@ -18,6 +18,7 @@ public class WorldCreator {
         FixtureDef fdef = new FixtureDef();
         Body body;
 
+        //wall boundaries
         for(MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
@@ -34,10 +35,11 @@ public class WorldCreator {
             body.createFixture(fdef);
         }
 
+        //furniture boundaries
         for(MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-            //define the type of properties our body (the ground) will contain
+            //define the type of properties our body (the furniture) will contain
             bdef.type = BodyDef.BodyType.StaticBody;
             bdef.position.set((rect.getX() + rect.getWidth() / 2) / WarLock.PPM, (rect.getY() + rect.getHeight() / 2) / WarLock.PPM);
 

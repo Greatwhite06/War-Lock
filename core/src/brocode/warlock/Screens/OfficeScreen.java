@@ -41,7 +41,7 @@ public class OfficeScreen implements Screen {
     private Music music;
 
     public OfficeScreen(WarLock game){
-        atlas = new TextureAtlas("Wizard GFX/wizard_animation.pack");
+        atlas = new TextureAtlas("Wizard GFX/wizard.pack");
         this.game = game;
         //create cam used to follow wizard through cam world
         gamecam = new OrthographicCamera();
@@ -80,9 +80,9 @@ public class OfficeScreen implements Screen {
 
     public void handleInput(float dt){
         if(Gdx.input.isKeyJustPressed(Input.Keys.UP))
-            player.b2body.applyLinearImpulse(new Vector2(0, 3f), player.b2body.getWorldCenter(), true);
+            player.b2body.applyLinearImpulse(new Vector2(0, 0.1f), player.b2body.getWorldCenter(), true);
         if(Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
-            player.b2body.applyLinearImpulse(new Vector2(0, -3f), player.b2body.getWorldCenter(), true);
+            player.b2body.applyLinearImpulse(new Vector2(0, -0.1f), player.b2body.getWorldCenter(), true);
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2)
             player.b2body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2body.getWorldCenter(), true);
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= -2)
@@ -98,9 +98,9 @@ public class OfficeScreen implements Screen {
         //timeStep = 1/60 = 60 times per second
         world.step(1/60f, 6, 2);
 
-        //player.update(dt);
+        player.update(dt);
 
-        //hud.update(dt);
+        hud.update(dt);
 
         //attach our gamecam to our players.x coordinate
         gamecam.position.x = player.b2body.getPosition().x;
