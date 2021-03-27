@@ -19,8 +19,6 @@ public class VirusTypes {
 
     }
 
-
-
     //reads TROJANDS.txt file by EACH LINE and returns it as a string
     public static String trojanR() throws IOException {
         trojanRead = readFile("core/assets/virusDescriptions/TROJANDS.txt", Charset.defaultCharset());
