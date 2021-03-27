@@ -13,15 +13,15 @@ public class WarLock extends Game {
 	Texture img;
 	Texture img2;
 
-	//@Override
+	@Override
 	public void create() {
 		batch = new SpriteBatch();
 		img2 = new Texture("gitpfp.jpg");
-		this.setScreen(new MainMenu(this));
+		//this.setScreen(new MainMenu(this));
 
 	}
 
-	//@Override
+	@Override
 	public void render() {
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -31,7 +31,7 @@ public class WarLock extends Game {
 		batch.end();
 	}
 
-	//@Override
+	@Override
 	public void dispose() {
 		batch.dispose();
 		img.dispose();
