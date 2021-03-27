@@ -18,23 +18,24 @@ public class VirusTypes {
     public VirusTypes(){
 
     }
-
-    public static String trojan() throws IOException {
+    //reads TROJANDS.txt file by EACH LINE and returns it as a string
+    public static String trojanR() throws IOException {
         trojanRead = readFile("core/assets/virusDescriptions/TROJANDS.txt", Charset.defaultCharset());
         return trojanRead;
     }
-
-    public static String worms() throws IOException {
+    //reads WORMSDS.txt file by EACH LINE and returns it as a string
+    public static String wormsR() throws IOException {
         //virusFile = new File("core/assets/virusDescriptions/WORMSDS.txt");
         wormsRead = readFile("core/assets/virusDescriptions/WORMSDS.txt", Charset.defaultCharset());
         return wormsRead;
     }
-
-    public static String ransomWare() throws IOException {
+    //reads RANSOMEWAREDS.txt file by EACH LINE and returns it as a string
+    public static String ransomWareR() throws IOException {
         ransomWareRead = readFile("core/assets/virusDescriptions/RANSOMWAREDS.txt", Charset.defaultCharset());
         return ransomWareRead;
     }
-
+    //Reads file lines as bytes and stops at a charSet code (In this case its endline).
+    //it then uses the array of bytes to make strings from new lines.
     static String readFile(String path, Charset encoding)
             throws IOException
     {
@@ -42,7 +43,4 @@ public class VirusTypes {
         return new String(encoded, encoding);
     }
 
-    private static void printOut(){
-        System.out.println(trojanRead);
-    }
 }
