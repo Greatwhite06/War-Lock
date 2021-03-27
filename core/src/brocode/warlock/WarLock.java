@@ -1,12 +1,10 @@
 package brocode.warlock;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import org.w3c.dom.Text;
 
 public class WarLock extends Game {
 	SpriteBatch batch;
@@ -17,7 +15,7 @@ public class WarLock extends Game {
 	public void create() {
 		batch = new SpriteBatch();
 		img2 = new Texture("gitpfp.jpg");
-		//this.setScreen(new MainMenu(this));
+		this.setScreen(new MainMenu(this));
 
 	}
 

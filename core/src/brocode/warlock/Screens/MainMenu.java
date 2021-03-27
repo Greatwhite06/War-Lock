@@ -1,5 +1,6 @@
-package brocode.warlock;
+package brocode.warlock.Screens;
 
+import brocode.warlock.WarLock;
 import com.badlogic.gdx.Screen;
 
 public class MainMenu implements Screen {
