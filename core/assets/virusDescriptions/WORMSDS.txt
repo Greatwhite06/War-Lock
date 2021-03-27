@@ -1,0 +1,5 @@
+A malicious, self-replicating program that can spread throughout a network without human assistance.
+- Steals data.
+- Corrupts Files.
+- Installs backdoors.
+- Exploits holes in security software.
