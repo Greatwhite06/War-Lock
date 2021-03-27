@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.math.MathUtils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,7 +14,7 @@ public class EmailClue {
     private List<String> Body = new ArrayList<>();
     private List<String> Reply = new ArrayList<>();
 
-    public void readfile(String emailPath){
+    public void readfile(String emailPath) {
 
         emailPath = "core/assets/Emails/Phising";
 
