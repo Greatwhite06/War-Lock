@@ -17,11 +17,11 @@ public class Wizard extends Sprite {
         this.runningRight = runningRight;
     }
 
-    public World world;
-    public Body b2body;
     public enum State {STANDING, RUNNING};
     public State currentState;
     public State previousState;
+    public World world;
+    public Body b2body;
     private TextureRegion wizardStand;
     private Animation<TextureRegion>wizardRun;
     private float stateTimer;

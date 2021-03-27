@@ -9,7 +9,7 @@ import brocode.warlock.CircularTree;
 import java.io.IOException;
 
 public class DesktopLauncher {
-	public static void main (String[] arg) throws IOException {
+	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		new LwjglApplication(new WarLock(), config);
 /*

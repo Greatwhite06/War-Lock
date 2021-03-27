@@ -2,6 +2,8 @@ package brocode.warlock.Screens;
 
 import brocode.warlock.Scenes.Hud;
 import brocode.warlock.Sprites.Wizard;
+import brocode.warlock.Tools.WorldContactListener;
+import brocode.warlock.Tools.WorldCreator;
 import brocode.warlock.WarLock;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -62,6 +64,7 @@ public class OfficeScreen implements Screen {
         //creates green lines to debug boundaries
         b2dr = new Box2DDebugRenderer();
 
+        new WorldCreator(this);
         player = new Wizard(this);
 
         //music = WarLock.manager.get("file/path.mp3", Music.class);
@@ -99,7 +102,6 @@ public class OfficeScreen implements Screen {
         world.step(1/60f, 6, 2);
 
         player.update(dt);
-
         hud.update(dt);
 
         //attach our gamecam to our players.x coordinate
@@ -113,7 +115,10 @@ public class OfficeScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        //separate our update logic from render
         update(delta);
+
+        //clear the game screen with Black
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
@@ -133,8 +138,8 @@ public class OfficeScreen implements Screen {
         game.batch.end();
 
         //Set our batch to now draw what the Hud camera sees
-        //game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
-        //hud.stage.draw();
+        game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
+        hud.stage.draw();
 
     }
 
@@ -172,6 +177,6 @@ public class OfficeScreen implements Screen {
         renderer.dispose();
         world.dispose();
         b2dr.dispose();
-        //hud.dispose();
+        hud.dispose();
     }
 }
