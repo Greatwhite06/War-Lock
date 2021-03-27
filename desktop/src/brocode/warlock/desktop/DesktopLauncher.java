@@ -17,7 +17,5 @@ public class DesktopLauncher {
 		System.out.println(VirusTypes.trojan());
 
 
-
-
 	}
 }
