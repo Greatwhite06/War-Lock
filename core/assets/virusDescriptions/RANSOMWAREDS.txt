@@ -1,3 +1,4 @@
+RANSOMWARE:
 Ransomware is a type of malware that holds your data captive and demands payment to release the data back to you. It restricts user access to the computer by either encrypting files on the hard drive or locking down the system and displaying messages that are intended to force the user to pay the attacker to release the restrictions and regain access to the computer. Once the attacker is paid, your system and data will usually go back to its original state.
 - Steals user data.
 - Can block users from using electrical device.
