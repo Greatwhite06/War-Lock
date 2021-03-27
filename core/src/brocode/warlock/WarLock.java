@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class WarLock extends Game {
-	public static final int V_WIDTH = 408;
+	public static final int V_WIDTH = 400;
 	public static final int V_HEIGHT = 208;
 
 	// Pixels per meter: use this float (divisional reasons) to scale everything that has pixel size (positional locations, viewports, character models)

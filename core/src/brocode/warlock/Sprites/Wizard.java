@@ -28,7 +28,7 @@ public class Wizard extends Sprite {
     private boolean runningRight;
 
     public Wizard(OfficeScreen screen){
-        super(screen.getAtlas().findRegion("isowizard.png"));
+        super(screen.getAtlas().findRegion("isowizard"));
         this.world = screen.getWorld();
         currentState = State.STANDING;
         previousState = State.STANDING;
