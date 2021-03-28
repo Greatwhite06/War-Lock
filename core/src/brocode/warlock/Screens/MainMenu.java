@@ -83,8 +83,8 @@ public class MainMenu extends ScreenAdapter {
 
         game.batch.enableBlending();
         game.batch.begin();
-        game.batch.draw(WarLock.logo, 200,104 , 64, 64);
-        game.batch.draw(WarLock.mainMenu, 200, 104, 64, 64);
+        game.batch.draw(WarLock.logo, 105,155 , 180, 40);
+        game.batch.draw(WarLock.wizTexture, 70, 4, 96 + 10, 96);
         //game.batch.draw(Settings.soundEnabled ? Assets.soundOn : Assets.soundOff, 0, 0, 64, 64);
         game.batch.end();
     }

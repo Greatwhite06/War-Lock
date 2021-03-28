@@ -1,11 +1,9 @@
 package brocode.warlock;
 
 import brocode.warlock.Screens.MainMenu;
-import brocode.warlock.Screens.OfficeScreen;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -26,8 +24,9 @@ public class WarLock extends Game {
 	public static Texture background;
 	public static TextureRegion backgroundRegion;
 
-	public static Texture items;
-	public static TextureRegion mainMenu;
+	public static Texture wizLink;
+	public static Texture titleLink;
+	public static TextureRegion wizTexture;
 	public static TextureRegion pauseMenu;
 	public static TextureRegion ready;
 	public static TextureRegion gameOver;
@@ -47,16 +46,19 @@ public class WarLock extends Game {
 	}
 	@Override
 	public void create() {
+		//Loads in texture for background and sizes it
 		background = loadTexture("Wizard GFX/background.png");
 		backgroundRegion = new TextureRegion(background, 0, 0, 400, 208);
 
-		items = loadTexture("Wizard GFX/SingleWizard.png");
-		mainMenu = new TextureRegion(items, 0, 224, 400, 208);
+		//loads in texture for single wizard and gives it a size
+		wizLink = loadTexture("Wizard GFX/SingleWizard.png");
+		titleLink = loadTexture("Wizard GFX/War-Lock.png");
+		wizTexture = new TextureRegion(wizLink, 0, 0, 32, 32);
 		//pauseMenu = new TextureRegion(items, 224, 128, 192, 96);
 		//ready = new TextureRegion(items, 320, 224, 192, 32);
 		//gameOver = new TextureRegion(items, 352, 256, 160, 96);
 		//highScoresRegion = new TextureRegion(WarLock.items, 0, 257, 300, 110 / 3);
-		logo = new TextureRegion(items, 200, 104, 64, 64);
+		logo = new TextureRegion(titleLink, 0, 0, 140, 25);
 		//soundOff = new TextureRegion(items, 0, 0, 64, 64);
 		//soundOn = new TextureRegion(items, 64, 0, 64, 64);
 		//arrow = new TextureRegion(items, 0, 64, 64, 64);
@@ -65,7 +67,6 @@ public class WarLock extends Game {
 
 		manager = new AssetManager();
 		setScreen(new MainMenu(this));
-		//setScreen(new OfficeScreen(this));
 	}
 
 	@Override
