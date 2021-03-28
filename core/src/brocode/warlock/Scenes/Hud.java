@@ -29,23 +29,18 @@ public class Hud implements Disposable {
     private Label wizardLabel;
 
     public Hud(SpriteBatch sb){
-        worldTimer = 100;
+        worldTimer = 300;
         timeCount = 0;
-        score = 0;
 
-        viewport = new FitViewport(WarLock.V_WIDTH, WarLock.V_HEIGHT, new OrthographicCamera());
+        viewport = new FitViewport(WarLock.V_WIDTH + 200, WarLock.V_HEIGHT, new OrthographicCamera());
         stage = new Stage(viewport, sb);
 
         Table table = new Table();
         table.top();
         table.setFillParent(true);
 
-        countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        scoreLabel = new Label(String.format("%06d", score), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        timeLabel = new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        //levelLabel = new Label("level", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        //worldLabel = new Label("WORLD", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        wizardLabel = new Label("WIZARD", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        countdownLabel = new Label(String.format("%02d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        timeLabel = new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.BLACK));
 
         table.add(wizardLabel).expandX().padTop(10);
         table.add(worldLabel).expandX().padTop(10);

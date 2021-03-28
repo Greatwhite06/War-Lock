@@ -104,8 +104,7 @@ public class OfficeScreen implements Screen {
         else if(((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || (Gdx.input.isKeyPressed(Input.Keys.A))) && player.b2body.getLinearVelocity().x >= -2)
             player.b2body.applyLinearImpulse(new Vector2(-0.25f, 0), player.b2body.getWorldCenter(), true);
         else {
-            //player.b2body.setLinearVelocity(new Vector2(0.0000f, 0.0000f));
-            player.b2body.setLinearDamping(10f);
+            player.b2body.setLinearVelocity(new Vector2(0.0001f, 0.0001f));
         }
 
 
