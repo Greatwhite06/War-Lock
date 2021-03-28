@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="8">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="12">
  <tileset firstgid="1" name="MainTileMap" tilewidth="32" tileheight="32" tilecount="2262" columns="78">
   <image source="MainTileMap.png" width="2496" height="928"/>
  </tileset>
  <layer id="1" name="background" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJxzY2VgcBsg3MxMXzxq76i9o/aO2jtq7+C2d6jVR0OtHoS5eaSlq1F7R+0dtXfU3qFi70BgAHOlsvk=
+   eJxzY2VgcBsg3MxMXzxq76i9o/aO2jtq7+C2d6jVR0OtHoS5eaSlq1F7R+0dtXfU3qFibzg7YUztOhAAtl+zpA==
   </data>
  </layer>
  <layer id="2" name="graphics" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztzQEJACAQBLDj+6fQgtpAQ4gibAWWAHBaq6TX/Xfscz54AYA/LdIuAy8=
+   eJxjYBgFo2AUjIJRQAuwmGlg7P04QPaOglEwCkbBKBgFwwWEs9MXD5TbQAAA9r4S2w==
   </data>
  </layer>
  <objectgroup id="3" name="walls">
@@ -19,7 +19,5 @@
   <object id="3" x="0" y="0" width="960" height="32"/>
   <object id="4" x="928" y="0" width="32" height="960"/>
  </objectgroup>
- <objectgroup id="5" name="furniture">
-  <object id="7" x="423.273" y="377.273" width="50.9091" height="40"/>
- </objectgroup>
+ <objectgroup id="5" name="furniture"/>
 </map>

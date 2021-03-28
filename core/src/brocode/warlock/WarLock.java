@@ -83,6 +83,7 @@ public class WarLock extends Game {
 
 		manager.finishLoading();
 
+
 		setScreen(new MainMenu(this));
 
 	}

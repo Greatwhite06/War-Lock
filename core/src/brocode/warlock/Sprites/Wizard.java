@@ -106,6 +106,7 @@ public class Wizard extends Sprite {
         BodyDef bdef = new BodyDef();
 
         //test start position on map
+        // FIXME: 3/28/2021 change for spawn location
         bdef.position.set(32 / WarLock.PPM, 32 / WarLock.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
 

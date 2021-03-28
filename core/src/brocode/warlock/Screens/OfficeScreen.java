@@ -1,7 +1,7 @@
 package brocode.warlock.Screens;
 
 import brocode.warlock.Scenes.Hud;
-import brocode.warlock.actors.Wizard;
+import brocode.warlock.Sprites.Wizard;
 import brocode.warlock.Tools.WorldCreator;
 import brocode.warlock.WarLock;
 import com.badlogic.gdx.Gdx;
@@ -53,7 +53,6 @@ public class OfficeScreen implements Screen {
         this.game = game;
         //create cam used to follow wizard through cam world
         createCamera();
-        initPlayer();
 
         hud = new Hud(game.batch);
 
@@ -72,6 +71,7 @@ public class OfficeScreen implements Screen {
 
         new WorldCreator(this);
 
+        player = new Wizard(this);
 
         music = WarLock.manager.get("audio/music/virusmusic.mp3", Music.class);
         music.setLooping(true);
@@ -79,17 +79,11 @@ public class OfficeScreen implements Screen {
         music.play();
 
     }
-    private void initPlayer() {
-        player = new Wizard(atlas,"Player");
-        player.setSize(100,150);
-        player.setDebug(true);
-        stage.addActor(player);
-    }
 
     private void createCamera(){
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(WarLock.V_WIDTH / WarLock.PPM, WarLock.V_HEIGHT / WarLock.PPM, gamecam);
-        stage = new Stage(gamePort);
+        //stage = new Stage(gamePort);
     }
 
     public TextureAtlas getAtlas(){
@@ -100,19 +94,15 @@ public class OfficeScreen implements Screen {
     public void show() {
     }
 
-    public void handleInput(){
-        if(Gdx.input.isKeyPressed(Input.Keys.D)) {
-            player.moveState = Wizard.PlayerMoveState.RIGHT;
-        }
-        if(Gdx.input.isKeyPressed(Input.Keys.A)) {
-            player.moveState = Wizard.PlayerMoveState.LEFT;
-        }
-        if(Gdx.input.isKeyPressed(Input.Keys.W)) {
-            player.moveState = Wizard.PlayerMoveState.UP;
-        }
-        if(Gdx.input.isKeyPressed(Input.Keys.S)) {
-            player.moveState = Wizard.PlayerMoveState.DOWN;
-        }
+    public void handleInput(float dt){
+        if(Gdx.input.isKeyJustPressed(Input.Keys.UP))
+            player.b2body.applyLinearImpulse(new Vector2(0, 0.3f), player.b2body.getWorldCenter(), true);
+        if(Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
+            player.b2body.applyLinearImpulse(new Vector2(0, -0.3f), player.b2body.getWorldCenter(), true);
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2)
+            player.b2body.applyLinearImpulse(new Vector2(0.3f, 0), player.b2body.getWorldCenter(), true);
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= -2)
+            player.b2body.applyLinearImpulse(new Vector2(-0.3f, 0), player.b2body.getWorldCenter(), true);
 
         // FIXME: 3/27/2021 Pause menu implementation?
         /*
@@ -123,7 +113,7 @@ public class OfficeScreen implements Screen {
     }
 
     public void update(float dt){
-        handleInput();
+        handleInput(dt);
 
         //for box2d to execute our physics simulation, we must tell it how many times to calculate per second
         //velocity and position affect how two bodies interact during a collision: higher numbers = longer but more precise
@@ -163,7 +153,7 @@ public class OfficeScreen implements Screen {
         //open box to put all textures we want inside
         game.batch.begin();
         //giving sprite game batch to be drawn
-        player.draw(game.batch,1);
+        player.draw(game.batch);
 
         game.batch.end();
 
