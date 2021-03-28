@@ -96,18 +96,27 @@ public class OfficeScreen implements Screen {
     public void handleInput(float dt){
         if((Gdx.input.isKeyPressed(Input.Keys.UP)) && player.b2body.getLinearVelocity().y <= 2)
             player.b2body.applyLinearImpulse(new Vector2(0, 0.25f), player.b2body.getWorldCenter(), true);
-        if((Gdx.input.isKeyPressed(Input.Keys.DOWN)) && player.b2body.getLinearVelocity().y >= -2)
+        else if((Gdx.input.isKeyPressed(Input.Keys.DOWN)) && player.b2body.getLinearVelocity().y >= -2)
             player.b2body.applyLinearImpulse(new Vector2(0, -0.25f), player.b2body.getWorldCenter(), true);
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2)
+        else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2)
             player.b2body.applyLinearImpulse(new Vector2(0.25f, 0), player.b2body.getWorldCenter(), true);
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= -2)
+        else if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= -2)
             player.b2body.applyLinearImpulse(new Vector2(-0.25f, 0), player.b2body.getWorldCenter(), true);
-/*
-        if (player.b2body.getLinearVelocity().x <= 0.2f){
+        else {
+            player.b2body.setLinearVelocity(new Vector2(0.0001f, 0.0001f));
+        }
+        /*
+        if (player.b2body.getLinearVelocity().x > 0){
+
+        }
+
+        if ((player.b2body.getLinearVelocity().x < 0.2f) || (player.b2body.getLinearVelocity().y <= 0.2f)){
             player.b2body.setLinearVelocity(new Vector2(0, 0.0f));
         }
 
- */
+         */
+
+
         // FIXME: 3/27/2021 Pause menu implementation?
         /*
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE) || (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE))){
