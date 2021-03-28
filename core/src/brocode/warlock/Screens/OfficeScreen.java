@@ -1,5 +1,6 @@
 package brocode.warlock.Screens;
 
+import brocode.warlock.ComputerObj;
 import brocode.warlock.Scenes.Hud;
 import brocode.warlock.Sprites.Wizard;
 import brocode.warlock.Tools.WorldCreator;
@@ -10,7 +11,6 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -47,6 +47,8 @@ public class OfficeScreen implements Screen {
     public static float mastervol = .08f;
     //public void setMasterVolume(float i){mastervol = i;}
 
+    private ComputerObj network;
+
     public OfficeScreen(WarLock game) {
 
         atlas = new TextureAtlas("Wizard GFX/wizard.pack");
@@ -70,6 +72,8 @@ public class OfficeScreen implements Screen {
         b2dr = new Box2DDebugRenderer();
 
         new WorldCreator(this);
+        network = new ComputerObj(0);
+        createNetwork(1);
 
         player = new Wizard(this);
 
@@ -79,6 +83,20 @@ public class OfficeScreen implements Screen {
         gamemusic.play();
 
 
+    }
+    private void createNetwork(int val){
+        network.left = new ComputerObj(1);
+        network.middle = new ComputerObj(2);
+        network.right = new ComputerObj(3);
+        network.left.left= new ComputerObj(4);
+        network.left.middle = new ComputerObj(5);
+        network.left.right = new ComputerObj(6);
+        network.middle.left= new ComputerObj(7);
+        network.middle.middle = new ComputerObj(8);
+        network.middle.right = new ComputerObj(9);
+        network.right.left = new ComputerObj(10);
+        network.right.middle = new ComputerObj(11);
+        network.right.right = new ComputerObj(12);
     }
 
     private void createCamera(){
@@ -93,6 +111,7 @@ public class OfficeScreen implements Screen {
     @Override
     public void show() {
     }
+
 
     public void handleInput(float dt){
         if(((Gdx.input.isKeyPressed(Input.Keys.UP)) || (Gdx.input.isKeyPressed(Input.Keys.W))) && player.b2body.getLinearVelocity().y <= 2)

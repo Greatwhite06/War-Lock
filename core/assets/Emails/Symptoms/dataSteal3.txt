@@ -1,4 +1,4 @@
-INFORMATION: <User opened Youttube>
+INFORMATION: <User opened Youtube>
 INFORMATION: <User visited http://rowdyhacks.org>
 INFORMATION: <User spammed community chats at http://rowdyhacks.org>
 WARNING: <UNKNOWN IP ACCESSED USER DEVICE>

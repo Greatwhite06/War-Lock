@@ -4,12 +4,23 @@ import java.util.List;
 import java.lang.String;
 
 //This will be used to implement in the email screen file. These can be used on the screen.
-public interface ComputerObj {
+public class ComputerObj {
     List<String> getBody = null;
     List<String> getReply = null;
-    //This is for a deeper mechanic if we end up using a spam folder for the window interface.
-    Object spam = new Object();
 
     int priorityValue = 0;
     Boolean VirusOnPC = false;
+
+    public ComputerObj left;
+    public ComputerObj middle;
+    public ComputerObj right;
+    int val;
+
+    public ComputerObj(int val)
+    {
+        this.val = val;
+        left = right = null;
+    }
+
+
 }

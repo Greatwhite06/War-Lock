@@ -12,7 +12,6 @@ public class LoggingScreen {
     //Once activated add computer startup sound
 
     //Create a frame
-    JFrame frame = new JFrame("Window PowerShell");
 
     //Optional: what happens when the frame closes
 
