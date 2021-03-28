@@ -66,6 +66,34 @@ public class WorldCreator {
 
 
         }
+
+        //papers
+        for(MapObject object : map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            //define the type of properties our body (the papers) will contain
+            bdef.type = BodyDef.BodyType.StaticBody;
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / WarLock.PPM, (rect.getY() + rect.getHeight() / 2) / WarLock.PPM);
+
+            //add this body to our box2d world
+            body = world.createBody(bdef);
+
+
+        }
+
+        //motherterminal
+        for(MapObject object : map.getLayers().get(6).getObjects().getByType(RectangleMapObject.class)){
+            Rectangle rect = ((RectangleMapObject) object).getRectangle();
+
+            //define the type of properties our body (the papers) will contain
+            bdef.type = BodyDef.BodyType.StaticBody;
+            bdef.position.set((rect.getX() + rect.getWidth() / 2) / WarLock.PPM, (rect.getY() + rect.getHeight() / 2) / WarLock.PPM);
+
+            //add this body to our box2d world
+            body = world.createBody(bdef);
+
+
+        }
     /*
         //create ground bodies/fixtures
         //the "2" in map.getLayers().get(2) references the index of the object layer in Tiled from starting from the ground up (0.background->1.graphics->*2*.ground)

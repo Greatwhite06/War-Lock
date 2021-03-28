@@ -107,6 +107,10 @@ public class OfficeScreen implements Screen {
             player.b2body.setLinearVelocity(new Vector2(0.0001f, 0.0001f));
         }
 
+        if (player.b2body.getLinearVelocity().equals(0)){
+
+        }
+
 
         /*
         if (player.b2body.getLinearVelocity().x > 0){
