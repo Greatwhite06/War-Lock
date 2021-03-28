@@ -131,7 +131,7 @@ public class Wizard extends Sprite {
 
         EdgeShape head = new EdgeShape();
         //where?
-        head.set(new Vector2(-2 / WarLock.PPM, 15 / WarLock.PPM), new Vector2(2 / WarLock.PPM, 15 / WarLock.PPM));
+        head.set(new Vector2(-2 / WarLock.PPM, 12 / WarLock.PPM), new Vector2(2 / WarLock.PPM, 12 / WarLock.PPM));
 
         fdef.shape = head;
         // when you create a fixture definition that is a sensor, it no longer collides with anything in the world, it is just available for you to query for user data

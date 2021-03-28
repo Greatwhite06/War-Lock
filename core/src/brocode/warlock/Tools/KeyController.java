@@ -110,5 +110,4 @@ public class KeyController  implements InputProcessor {
         //screen.camera.zoom += amount * 0.2f;
         return false;
     }
-
 }
