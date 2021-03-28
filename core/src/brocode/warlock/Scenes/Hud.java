@@ -1,8 +1,10 @@
 package brocode.warlock.Scenes;
 
 import brocode.warlock.WarLock;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -27,6 +29,9 @@ public class Hud implements Disposable {
     private Label worldLabel;
     private Label charLabel;
     private Label wizardLabel;
+    //Rectangle compDisp;
+
+    Texture computerImg = new Texture(Gdx.files.internal("Emails/Windows-98-desktop-notepad-640-480.png"));
 
     public Hud(SpriteBatch sb){
         worldTimer = 300;
@@ -50,17 +55,22 @@ public class Hud implements Disposable {
         table.add(levelLabel).expandX();
         table.add(countdownLabel).expandX();
 
+        //Rectangle compDisp = ;
+
         stage.addActor(table);
     }
+
 
     //keeps track of time count and subtracts 1 from world timer per second
     public void update(float dt){
         timeCount += dt;
-        if(timeCount >= 1){
+        if(timeCount >= 1) {
             worldTimer--;
             countdownLabel.setText(String.format("%03d", worldTimer));
             timeCount = 0;
         }
+
+
     }
 
     public static void addScore(int value){

@@ -49,7 +49,7 @@ public class OfficeScreen implements Screen {
     //public void setMasterVolume(float i){mastervol = i;}
 
     private ComputerObj network;
-    private int[] infectID;
+    private int[] infectID = new int[3];
 
     public OfficeScreen(WarLock game) {
 
@@ -90,25 +90,23 @@ public class OfficeScreen implements Screen {
     private void createNetwork(int val){
         System.out.print("Infected Computers ID: ");
         for(int i =0; i < 3;i++){
-            infectID[i] = MathUtils.random(1,8);
+            infectID[i] = MathUtils.random(1,6);
             System.out.print(infectID[i] + " ");
         }
         System.out.println();
 
         network.left = new ComputerObj(1);
         if(network.left.val == infectID[0] || network.left.val == infectID[1] || network.left.val == infectID[2]){
-            network.left.VirusOnPC = true;
+            network.left.Infect();
         }
         network.right = new ComputerObj(2);
-        if(network.left.val == infectID[0] || network.left.val == infectID[1] || network.left.val == infectID[2]){
-            network.left.VirusOnPC = true;
+        if(network.right.val == infectID[0] || network.right.val == infectID[1] || network.right.val == infectID[2]){
+            network.right.Infect();
         }
         network.left.left= new ComputerObj(3);
         network.left.right = new ComputerObj(4);
-        network.middle.left= new ComputerObj(5);
-        network.middle.right = new ComputerObj(6);
-        network.right.left = new ComputerObj(7);
-        network.right.right = new ComputerObj(8);
+        network.right.left = new ComputerObj(5);
+        network.right.right = new ComputerObj(6);
     }
 
     private void recInfect(ComputerObj computer, int[] infectID){
