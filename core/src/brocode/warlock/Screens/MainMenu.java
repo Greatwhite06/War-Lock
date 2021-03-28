@@ -2,12 +2,13 @@ package brocode.warlock.Screens;
 
 import brocode.warlock.WarLock;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
-import com.sun.scenario.Settings;
+
 
 public class MainMenu extends ScreenAdapter {
     WarLock game;
@@ -31,6 +32,10 @@ public class MainMenu extends ScreenAdapter {
     }
 
     public void update () {
+        if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
+            game.setScreen(new OfficeScreen(game));
+        }
+
         if (Gdx.input.justTouched()) {
             guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
 
@@ -66,7 +71,7 @@ public class MainMenu extends ScreenAdapter {
 
     public void draw () {
         GL20 gl = Gdx.gl;
-        gl.glClearColor(1, 0, 0, 1);
+        gl.glClearColor(0, 0, 0, 1);
         gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         guiCam.update();
         game.batch.setProjectionMatrix(guiCam.combined);
