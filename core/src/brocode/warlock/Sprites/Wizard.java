@@ -86,7 +86,7 @@ public class Wizard extends Sprite {
     }
 
     public State getState(){
-        if (b2body.getLinearVelocity().x != 0) // wizard not at a state of rest? run animation
+        if (b2body.getLinearVelocity().x != 0 || b2body.getLinearVelocity().y != 0) // wizard not at a state of rest? run animation
             return State.RUNNING;
         else                                        // wizard doing something else? stand animation
             return State.STANDING;

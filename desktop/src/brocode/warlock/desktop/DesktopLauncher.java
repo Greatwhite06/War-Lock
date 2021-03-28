@@ -1,6 +1,7 @@
 package brocode.warlock.desktop;
 
 import brocode.warlock.Node;
+import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import brocode.warlock.WarLock;
@@ -11,7 +12,11 @@ import java.io.IOException;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
+		Graphics.DisplayMode desktopMode = LwjglApplicationConfiguration.getDesktopDisplayMode();
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.title = "War-Lock";
+		config.setFromDisplayMode(desktopMode);
+		//config.vSyncEnabled = true;
 		new LwjglApplication(new WarLock(), config);
 
 		LoggingScreen test = new LoggingScreen();

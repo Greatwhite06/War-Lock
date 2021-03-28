@@ -83,7 +83,6 @@ public class OfficeScreen implements Screen {
     private void createCamera(){
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(WarLock.V_WIDTH / WarLock.PPM, WarLock.V_HEIGHT / WarLock.PPM, gamecam);
-        //stage = new Stage(gamePort);
     }
 
     public TextureAtlas getAtlas(){
