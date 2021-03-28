@@ -3,6 +3,7 @@ package brocode.warlock.Screens;
 import brocode.warlock.ComputerObj;
 import brocode.warlock.Scenes.Hud;
 import brocode.warlock.Sprites.Wizard;
+import brocode.warlock.Tools.WorldContactListener;
 import brocode.warlock.Tools.WorldCreator;
 import brocode.warlock.WarLock;
 import com.badlogic.gdx.Gdx;
@@ -81,6 +82,7 @@ public class OfficeScreen implements Screen {
         //creates green lines to debug boundaries
         b2dr = new Box2DDebugRenderer();
 
+        world.setContactListener(new WorldContactListener());
         new WorldCreator(this);
         network = new ComputerObj(0);
         createNetwork(1);

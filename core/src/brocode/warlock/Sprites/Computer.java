@@ -2,6 +2,7 @@ package brocode.warlock.Sprites;
 
 import brocode.warlock.Screens.LoggingScreen;
 import brocode.warlock.Screens.OfficeScreen;
+import brocode.warlock.VirusTypes;
 import brocode.warlock.WarLock;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -19,10 +20,8 @@ public class Computer extends InteractiveTileObject{
         Gdx.app.log("TEST", "Collision");
         setCategoryFilter(WarLock.ACCESSED_BIT);
         getCell().setTile(null);
-        System.out.println("THIS IS A TEST1");
         if (Gdx.input.isKeyPressed(Input.Keys.E)){
-            System.out.println("THIS IS A TEST");
-            //game.setScreen(new OfficeScreen(game));
+
         }
     }
 }

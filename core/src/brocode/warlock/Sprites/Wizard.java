@@ -122,12 +122,17 @@ public class Wizard extends Sprite {
         CircleShape shape = new CircleShape();
         shape.setRadius(14 / WarLock.PPM);
 
+        fdef.filter.categoryBits = WarLock.WIZARD_BIT;
+        //these are the things mario can collide with
+        fdef.filter.maskBits = WarLock.GROUND_BIT | WarLock.COMPUTER_BIT;
+
         fdef.shape = shape;
         b2body.createFixture(fdef);
 
-        CircleShape head = new CircleShape();
+        EdgeShape head = new EdgeShape();
         //where?
-        head.setRadius(14 / WarLock.PPM);
+        head.set(new Vector2(-2 / WarLock.PPM, 15 / WarLock.PPM), new Vector2(2 / WarLock.PPM, 15 / WarLock.PPM));
+
         fdef.shape = head;
         // when you create a fixture definition that is a sensor, it no longer collides with anything in the world, it is just available for you to query for user data
         fdef.isSensor = true;
@@ -136,27 +141,4 @@ public class Wizard extends Sprite {
         b2body.createFixture(fdef).setUserData("head");
 
     }
-
-    public boolean keyDown(int keycode){
-        switch(keycode) {
-            case Input.Keys.W:
-                break;
-            case Input.Keys.A:
-                velocity.x = -speed;
-                break;
-            case Input.Keys.D:
-                velocity.x = speed;
-        }
-        return true;
-    }
-
-    public boolean KeyUP(int keycode){
-        switch(keycode) {
-            case Input.Keys.A:
-            case Input.Keys.D:
-                velocity.x = 0;
-        }
-        return true;
-    }
-
 }

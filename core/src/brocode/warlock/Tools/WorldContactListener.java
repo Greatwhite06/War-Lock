@@ -8,11 +8,12 @@ public class WorldContactListener implements ContactListener { //what gets calle
     public void beginContact(Contact contact) { //when two figures begin to collide
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
-
+        System.out.println("made it this far1");
         if(fixA.getUserData() == "head" || fixB.getUserData() == "head"){
             Fixture head = fixA.getUserData() == "head" ? fixA : fixB;
             Fixture object = head == fixA ? fixB : fixA;
 
+            System.out.println("made it this far");
             if(object.getUserData() != null && InteractiveTileObject.class.isAssignableFrom(object.getUserData().getClass())){
                 ((InteractiveTileObject) object.getUserData()).onHeadHit();
             }
