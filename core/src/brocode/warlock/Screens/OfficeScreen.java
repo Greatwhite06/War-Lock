@@ -1,8 +1,7 @@
 package brocode.warlock.Screens;
 
 import brocode.warlock.Scenes.Hud;
-import brocode.warlock.Sprites.Wizard;
-import brocode.warlock.Tools.WorldContactListener;
+import brocode.warlock.actors.Wizard;
 import brocode.warlock.Tools.WorldCreator;
 import brocode.warlock.WarLock;
 import com.badlogic.gdx.Gdx;
@@ -46,7 +45,8 @@ public class OfficeScreen implements Screen {
     public static float mastervol = .08f;
     //public void setMasterVolume(float i){mastervol = i;}
 
-    public OfficeScreen(WarLock game){
+    public OfficeScreen(WarLock game) {
+
         atlas = new TextureAtlas("Wizard GFX/wizard.pack");
         this.game = game;
         //create cam used to follow wizard through cam world
@@ -69,7 +69,7 @@ public class OfficeScreen implements Screen {
         b2dr = new Box2DDebugRenderer();
 
         new WorldCreator(this);
-        player = new Wizard(this);
+        player = new Wizard(atlas,"Player");
 
         music = WarLock.manager.get("audio/music/virusmusic.mp3", Music.class);
         music.setLooping(true);
@@ -84,28 +84,28 @@ public class OfficeScreen implements Screen {
 
     @Override
     public void show() {
-
     }
 
     public void handleInput(){
         if(Gdx.input.isKeyPressed(Input.Keys.D)) {
-            if (Gdx.input.isKeyPressed(Input.Keys.D) && (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)))
-                player.translateX(0.1f);
-            else
-                player.translateX(0.3f);
+            player.moveState = Wizard.PlayerMoveState.RIGHT;
         }
         if(Gdx.input.isKeyPressed(Input.Keys.A)) {
-            if (Gdx.input.isKeyPressed(Input.Keys.A) && (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)))
-                player.translateX(-0.1f);
-            else
-                player.translateX(-0.3f);
+            player.moveState = Wizard.PlayerMoveState.LEFT;
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.W)) {
+            player.moveState = Wizard.PlayerMoveState.UP;
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.S)) {
+            player.moveState = Wizard.PlayerMoveState.DOWN;
         }
 
         // FIXME: 3/27/2021 Pause menu implementation?
+        /*
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE) || (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE))){
                 game.setScreen(new PauseMenu(game));
         }
-
+         */
     }
 
     public void update(float dt){
@@ -120,7 +120,8 @@ public class OfficeScreen implements Screen {
         hud.update(dt);
 
         //attach our gamecam to our players.x coordinate
-        gamecam.position.x = player.b2body.getPosition().x;
+        gamecam.position.x = player.getX();
+        gamecam.position.y = player.getY();
 
         //update our gamecam with correct coordinates after changes
         gamecam.update();

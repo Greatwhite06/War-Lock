@@ -1,6 +1,8 @@
 package brocode.warlock;
 
 import brocode.warlock.Screens.MainMenu;
+import brocode.warlock.Screens.OfficeScreen;
+import brocode.warlock.Tools.KeyController;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
@@ -39,6 +41,8 @@ public class WarLock extends Game {
 	public static TextureRegion arrow;
 	public static TextureRegion pause;
 
+	public KeyController controller;
+
 	/* NOTE: using AssetManager in a static way can cause issues. Instead, we may want to pass around Assetmanager to
 	the classes that need it. It is used in a static context here to save time */
 	public static AssetManager manager;
@@ -48,6 +52,11 @@ public class WarLock extends Game {
 	}
 	@Override
 	public void create() {
+		controller = new KeyController();
+		//tells GDX to listen for keypresses
+		Gdx.input.setInputProcessor(controller);
+
+
 		//Loads in texture for background and sizes it
 		manager = new AssetManager();
 		background = loadTexture("Wizard GFX/background.png");
@@ -75,6 +84,7 @@ public class WarLock extends Game {
 		manager.finishLoading();
 
 		setScreen(new MainMenu(this));
+
 	}
 
 	@Override
