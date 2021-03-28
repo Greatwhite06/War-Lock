@@ -95,9 +95,9 @@ public class OfficeScreen implements Screen {
     }
 
     public void handleInput(float dt){
-        if(((Gdx.input.isKeyPressed(Input.Keys.UP)) || (Gdx.input.isKeyPressed(Input.Keys.W))) && player.b2body.getLinearVelocity().y <= 1.5)
+        if(((Gdx.input.isKeyPressed(Input.Keys.UP)) || (Gdx.input.isKeyPressed(Input.Keys.W))) && player.b2body.getLinearVelocity().y <= 2)
             player.b2body.applyLinearImpulse(new Vector2(0, 0.25f), player.b2body.getWorldCenter(), true);
-        else if(((Gdx.input.isKeyPressed(Input.Keys.DOWN)) || (Gdx.input.isKeyPressed(Input.Keys.S))) && player.b2body.getLinearVelocity().y >= -1.5)
+        else if(((Gdx.input.isKeyPressed(Input.Keys.DOWN)) || (Gdx.input.isKeyPressed(Input.Keys.S))) && player.b2body.getLinearVelocity().y >= -2)
             player.b2body.applyLinearImpulse(new Vector2(0, -0.25f), player.b2body.getWorldCenter(), true);
         else if (((Gdx.input.isKeyPressed(Input.Keys.RIGHT)) || (Gdx.input.isKeyPressed(Input.Keys.D))) && player.b2body.getLinearVelocity().x <= 2)
             player.b2body.applyLinearImpulse(new Vector2(0.25f, 0), player.b2body.getWorldCenter(), true);
