@@ -1,6 +1,5 @@
 package brocode.warlock;
 
-import brocode.warlock.Node;
 public class CircularTree {
     public static Node root;
     // A class to represent a tree

@@ -1,18 +1,15 @@
 package brocode.warlock;
 
 import brocode.warlock.Screens.MainMenu;
-import brocode.warlock.Screens.OfficeScreen;
 import brocode.warlock.Tools.KeyController;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-import java.awt.*;
 
 public class WarLock extends Game {
 	public static final int V_WIDTH = 400;
@@ -95,6 +92,12 @@ public class WarLock extends Game {
 		super.dispose();
 		manager.dispose();
 		batch.dispose();
+		wizLink.dispose();
+		spaceLink.dispose();
+		titleLink.dispose();
+		infoLink.dispose();
+		background.dispose();
+
 	}
 
 
