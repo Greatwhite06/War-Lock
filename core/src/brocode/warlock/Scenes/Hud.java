@@ -29,7 +29,7 @@ public class Hud implements Disposable {
     private Label wizardLabel;
 
     public Hud(SpriteBatch sb){
-        worldTimer = 10;
+        worldTimer = 100;
         timeCount = 0;
         score = 0;
 
