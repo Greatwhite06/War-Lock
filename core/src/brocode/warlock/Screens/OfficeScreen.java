@@ -49,7 +49,7 @@ public class OfficeScreen implements Screen {
         gamecam = new OrthographicCamera();
 
         gamePort = new FitViewport(WarLock.V_WIDTH / WarLock.PPM, WarLock.V_HEIGHT / WarLock.PPM, gamecam);
-        //hud = new Hud(game.batch);
+        hud = new Hud(game.batch);
 
         //Load our map and setup our map renderer
         maploader = new TmxMapLoader();
@@ -82,13 +82,13 @@ public class OfficeScreen implements Screen {
     }
 
     public void handleInput(float dt){
-        if(Gdx.input.isKeyJustPressed(Input.Keys.UP))
+        if(Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W))
             player.b2body.applyLinearImpulse(new Vector2(0, 0.1f), player.b2body.getWorldCenter(), true);
-        if(Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
+        if(Gdx.input.isKeyJustPressed(Input.Keys.DOWN) || Gdx.input.isKeyJustPressed(Input.Keys.S))
             player.b2body.applyLinearImpulse(new Vector2(0, -0.1f), player.b2body.getWorldCenter(), true);
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2)
+        if((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyJustPressed(Input.Keys.D)) && player.b2body.getLinearVelocity().x <= 2)
             player.b2body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2body.getWorldCenter(), true);
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= -2)
+        if((Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyJustPressed(Input.Keys.A))&& player.b2body.getLinearVelocity().x >= -2)
             player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);
 
     }
@@ -102,6 +102,7 @@ public class OfficeScreen implements Screen {
         world.step(1/60f, 6, 2);
 
         player.update(dt);
+
         hud.update(dt);
 
         //attach our gamecam to our players.x coordinate
