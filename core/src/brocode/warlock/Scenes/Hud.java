@@ -16,7 +16,7 @@ public class Hud implements Disposable {
     public Stage stage;
     private Viewport viewport;
 
-    private Integer worldTimer;
+    public Integer worldTimer;
     private float timeCount;
     private static Integer score;
 
@@ -29,7 +29,7 @@ public class Hud implements Disposable {
     private Label wizardLabel;
 
     public Hud(SpriteBatch sb){
-        worldTimer = 300;
+        worldTimer = 10;
         timeCount = 0;
         score = 0;
 

@@ -136,6 +136,10 @@ public class OfficeScreen implements Screen {
         player.update(dt);
         hud.update(dt);
 
+        if(hud.worldTimer <= 0) {
+            System.out.println("GAME OVER!");
+            game.setScreen(new GameOverScreen(game));
+        }
         //attach our gamecam to our players.x coordinate
         gamecam.position.x = player.getX();
         gamecam.position.y = player.getY();
