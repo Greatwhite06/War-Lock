@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="32">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="41">
  <tileset firstgid="1" name="MainTileMap" tilewidth="32" tileheight="32" tilecount="2262" columns="78">
   <image source="MainTileMap.png" width="2496" height="928"/>
  </tileset>
  <layer id="1" name="background" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJzl1k0KgCAQBeBXGZ2iVZ0l6AStM7pD+w7RdUNUCOmHIN9ALh4DBn2OU2CfA71AxgxoFdAobjXulvNj3AXcTJl1ZxdNytFlmaEr1W9qrl9j+KHL6vvMlTrnVFzJ/0hivim6f/uuwnd79+p57H6v9hhr7ndu7H7NfUe7CnBcf8/SB5/pvskXbq1s2POVdteCG+8O1XO68rsYcwe0YlwQ
+   eJzt1j0OwiAUwPEHxXgKJ72CegOTTo7OYryDu4fwiOot9KUlEr76qPTh4PBPByi/IiZtKwHaCh0FwEoBLBXvFd2b5A/dC/B2Ep177tNM2S6X6bq19kt199JvaheN+7uH1XOEHTrfmG/MTeOXa9uuWSPmxkzb/saNzV0nTGybuPfv0l0t/HHKPVQ3tFZsbXcudd6Y/Yas2LOGSu3XfUenxnLHh37nqfoFN3QelP9VThRXi8+7osQ70qwZcjlDF793dH8F4HHNd5a2fE43pxLuQnVxn29t99rwZtzDfLjdrFxovgDyQUXG
   </data>
  </layer>
  <layer id="2" name="graphics" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJyzYmagO7gDxFZAeysY6IsHg730Asj2JjLSz95kxlF7R+0dtRcGUsl061C2lxy7h6q95ILBZm8AkB/PiIoDmXHLkSKPz955QH44kjpDIJ7PjJDDBoiRh6UHXPa+AfKXIumvB+K3zAg5bIBYeRAYbPELApPQMD45UuUH2r8gUIFE0wPDwEDaO4pHMTUxAFJKv8M=
+   eJyzYmagO7gDxFZAeysY6IsHg730Asj2JjLSz95kxlF7R+2lvb1mzBBMDFADqlcHYg0S3AsznxJ7S4DqS4G4jM72gsAV4pVS1V4lRtLUE7K3GEvYFSPJ48KtOPSi68dl70EsdiCLtUAxNrux6UUXx2UvrTEuewOgcXYaiM9AwykQSW4CM2Y+CkTTi00eBnDZOw+Iw4FYEigmBcSGQDXzkeTuMWPmI2T5T0zY5QnZ+waIlyKFSz1QzVskOeS0CUvPyPIOQHwOKHaeAVUel73cTLSPW5Ad6PZGMiHc58mEipH1ossRIw8Lo0gs9tILwOwFgQokmh4YBgbS3lE8iqmJAT8N4x0=
   </data>
  </layer>
  <objectgroup id="3" name="walls">
@@ -33,6 +33,12 @@
   <object id="26" x="160.5" y="680.75" width="128" height="21.5"/>
   <object id="29" x="384" y="681.333" width="160.667" height="22.6667"/>
   <object id="31" x="640" y="680" width="160.667" height="24"/>
+  <object id="40" x="32" y="736" width="896" height="32"/>
  </objectgroup>
- <objectgroup id="5" name="furniture"/>
+ <objectgroup id="5" name="furniture">
+  <object id="35" x="437.25" y="340.25" width="55.75" height="42.25"/>
+ </objectgroup>
+ <objectgroup id="6" name="computer">
+  <object id="37" x="403.25" y="319.75" width="124" height="92.25"/>
+ </objectgroup>
 </map>

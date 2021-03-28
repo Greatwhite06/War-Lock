@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
+import net.dermetfan.gdx.physics.box2d.Box2DUtils;
 
 import java.awt.*;
 
@@ -16,7 +17,8 @@ import java.awt.*;
 public class MainMenu extends ScreenAdapter {
     WarLock game;
     OrthographicCamera guiCam;
-    private Music music;
+    private Music menumusic;
+    public static float mastervol = .08f;
     /*
     Rectangle soundBounds;
     Rectangle playBounds;
@@ -37,10 +39,14 @@ public class MainMenu extends ScreenAdapter {
         helpBounds = new Rectangle(160 - 150, 200 - 18 - 36, 300, 36);
         touchPoint = new Vector3();
 
-         */
-        //music = WarLock.manager.get("audio/music/menu music.wav", Music.class);
-        //music.setLooping(true);
-        //music.play();
+*/
+
+        menumusic = WarLock.manager.get("audio/music/menumusic.mp3", Music.class);
+        menumusic.setLooping(true);
+        menumusic.setVolume(mastervol);
+        menumusic.play();
+
+
     }
 
     public void update () {
@@ -99,7 +105,7 @@ public class MainMenu extends ScreenAdapter {
         game.batch.draw(WarLock.wizTexture, 70, 4, 96 + 10, 96);
         game.batch.draw(WarLock.spaceTexture, 180, 30, 212, 22);
 
-        //game.batch.draw(Settings.soundEnabled ? Assets.soundOn : Assets.soundOff, 0, 0, 64, 64);
+        //game.batch.draw(Box2DUtils.Settings.soundEnabled ? Assets.soundOn : Assets.soundOff, 0, 0, 64, 64);
         game.batch.end();
     }
 

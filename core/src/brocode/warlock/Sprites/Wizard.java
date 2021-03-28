@@ -111,7 +111,7 @@ public class Wizard extends Sprite {
 
         //test start position on map
         // FIXME: 3/28/2021 change for spawn location
-        bdef.position.set(32 / WarLock.PPM, 32 / WarLock.PPM);
+        bdef.position.set(256 / WarLock.PPM, 256 / WarLock.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
 
         //Now that the wizard's defined, we are able create in our world

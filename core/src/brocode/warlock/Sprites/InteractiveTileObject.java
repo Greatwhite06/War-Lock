@@ -1,5 +1,6 @@
 package brocode.warlock.Sprites;
 
+import brocode.warlock.Screens.LoggingScreen;
 import brocode.warlock.Screens.OfficeScreen;
 import brocode.warlock.WarLock;
 import com.badlogic.gdx.maps.tiled.TiledMap;

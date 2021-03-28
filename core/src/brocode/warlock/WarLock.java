@@ -7,6 +7,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -24,6 +25,7 @@ public class WarLock extends Game {
 	public static final short GROUND_BIT = 1;
 	public static final short WIZARD_BIT = 2;
 	public static final short FURNITURE_BIT = 4;
+	public static final short COMPUTER_BIT = 8;
 	public SpriteBatch batch;
 
 	public static Texture background;
@@ -80,8 +82,7 @@ public class WarLock extends Game {
 		//pause = new TextureRegion(items, 64, 64, 64, 64);
 		batch = new SpriteBatch();
 		manager.load("audio/music/virusmusic.mp3", Music.class);
-		//manager.load("audio/music/menumusic.wav", Music.class);
-
+		manager.load("audio/music/menumusic.mp3", Music.class);
 		manager.finishLoading();
 
 		setScreen(new MainMenu(this));

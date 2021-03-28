@@ -42,7 +42,7 @@ public class OfficeScreen implements Screen {
 
     //Realizes wizard character
     private Wizard player;
-    private Music music;
+    private Music gamemusic;
     //sets master volume
     public static float mastervol = .08f;
     //public void setMasterVolume(float i){mastervol = i;}
@@ -73,10 +73,11 @@ public class OfficeScreen implements Screen {
 
         player = new Wizard(this);
 
-        music = WarLock.manager.get("audio/music/virusmusic.mp3", Music.class);
-        music.setLooping(true);
-        music.setVolume(mastervol);
-        music.play();
+        gamemusic = WarLock.manager.get("audio/music/virusmusic.mp3", Music.class);
+        gamemusic.setLooping(true);
+        gamemusic.setVolume(mastervol);
+        gamemusic.play();
+
 
     }
 
@@ -94,13 +95,13 @@ public class OfficeScreen implements Screen {
     }
 
     public void handleInput(float dt){
-        if(((Gdx.input.isKeyPressed(Input.Keys.UP)) || (Gdx.input.isKeyPressed(Input.Keys.W))) && player.b2body.getLinearVelocity().y <= 2)
+        if((Gdx.input.isKeyPressed(Input.Keys.UP)) || (Gdx.input.isKeyPressed(Input.Keys.W)) && player.b2body.getLinearVelocity().y <= 1)
             player.b2body.applyLinearImpulse(new Vector2(0, 0.25f), player.b2body.getWorldCenter(), true);
-        else if(((Gdx.input.isKeyPressed(Input.Keys.DOWN)) || (Gdx.input.isKeyPressed(Input.Keys.S))) && player.b2body.getLinearVelocity().y >= -2)
+        else if((Gdx.input.isKeyPressed(Input.Keys.DOWN)) || (Gdx.input.isKeyPressed(Input.Keys.S)) && player.b2body.getLinearVelocity().y >= -1)
             player.b2body.applyLinearImpulse(new Vector2(0, -0.25f), player.b2body.getWorldCenter(), true);
-        else if (((Gdx.input.isKeyPressed(Input.Keys.RIGHT)) || (Gdx.input.isKeyPressed(Input.Keys.D))) && player.b2body.getLinearVelocity().x <= 2)
+        else if ((Gdx.input.isKeyPressed(Input.Keys.RIGHT)) || (Gdx.input.isKeyPressed(Input.Keys.D)) && player.b2body.getLinearVelocity().x <= 1)
             player.b2body.applyLinearImpulse(new Vector2(0.25f, 0), player.b2body.getWorldCenter(), true);
-        else if(((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || (Gdx.input.isKeyPressed(Input.Keys.A))) && player.b2body.getLinearVelocity().x >= -2)
+        else if((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || (Gdx.input.isKeyPressed(Input.Keys.A)) && player.b2body.getLinearVelocity().x >= -1)
             player.b2body.applyLinearImpulse(new Vector2(-0.25f, 0), player.b2body.getWorldCenter(), true);
         else {
             player.b2body.setLinearVelocity(new Vector2(0.0001f, 0.0001f));
@@ -138,7 +139,7 @@ public class OfficeScreen implements Screen {
 
         if(hud.worldTimer <= 0) {
             System.out.println("GAME OVER!");
-            music.stop();
+            gamemusic.stop();
             game.setScreen(new GameOverScreen(game));
         }
         //attach our gamecam to our players.x coordinate
