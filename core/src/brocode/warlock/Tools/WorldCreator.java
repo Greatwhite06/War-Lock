@@ -53,6 +53,7 @@ public class WorldCreator {
             body.createFixture(fdef);
         }
 
+        //computer
         for(MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)){
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
@@ -64,10 +65,13 @@ public class WorldCreator {
             body = world.createBody(bdef);
 
             //setAsBox = define fixture
+            /*
             shape.setAsBox((rect.getWidth() / 2) / WarLock.PPM, (rect.getHeight() / 2) / WarLock.PPM);
             fdef.shape = shape;
 
             body.createFixture(fdef);
+
+             */
         }
     /*
         //create ground bodies/fixtures

@@ -4,7 +4,7 @@ import brocode.warlock.Screens.LoggingScreen;
 import brocode.warlock.WarLock;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
-/*
+
 public class Computer extends InteractiveTileObject{
     public Computer(LoggingScreen screen, Rectangle bounds){
         super(screen, bounds);
@@ -19,4 +19,4 @@ public class Computer extends InteractiveTileObject{
 
 }
 
- */
+
