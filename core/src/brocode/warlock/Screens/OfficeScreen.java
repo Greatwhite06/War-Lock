@@ -42,6 +42,10 @@ public class OfficeScreen implements Screen {
     private Wizard player;
     private Music music;
 
+    //sets master volume
+    public static float mastervol = .08f;
+    //public void setMasterVolume(float i){mastervol = i;}
+
     public OfficeScreen(WarLock game){
         atlas = new TextureAtlas("Wizard GFX/wizard.pack");
         this.game = game;
@@ -67,9 +71,11 @@ public class OfficeScreen implements Screen {
         new WorldCreator(this);
         player = new Wizard(this);
 
-        //music = WarLock.manager.get("file/path.mp3", Music.class);
-        //music.setLooping(true);
-        //music.play();
+        music = WarLock.manager.get("audio/music/virusmusic.mp3", Music.class);
+        music.setLooping(true);
+        music.setVolume(mastervol);
+        music.play();
+
     }
 
     public TextureAtlas getAtlas(){

@@ -4,6 +4,7 @@ import brocode.warlock.Screens.MainMenu;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -48,6 +49,7 @@ public class WarLock extends Game {
 	@Override
 	public void create() {
 		//Loads in texture for background and sizes it
+		manager = new AssetManager();
 		background = loadTexture("Wizard GFX/background.png");
 		backgroundRegion = new TextureRegion(background, 0, 0, 400, 208);
 
@@ -67,8 +69,11 @@ public class WarLock extends Game {
 		//arrow = new TextureRegion(items, 0, 64, 64, 64);
 		//pause = new TextureRegion(items, 64, 64, 64, 64);
 		batch = new SpriteBatch();
+		manager.load("audio/music/virusmusic.mp3", Music.class);
+		//manager.load("audio/music/menumusic.wav", Music.class);
 
-		manager = new AssetManager();
+		manager.finishLoading();
+
 		setScreen(new MainMenu(this));
 	}
 
