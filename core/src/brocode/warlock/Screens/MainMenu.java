@@ -13,10 +13,12 @@ import com.badlogic.gdx.math.Vector3;
 public class MainMenu extends ScreenAdapter {
     WarLock game;
     OrthographicCamera guiCam;
+    /*
     Rectangle soundBounds;
     Rectangle playBounds;
     Rectangle highscoresBounds;
     Rectangle helpBounds;
+     */
     Vector3 touchPoint;
 
     public MainMenu (WarLock game) {
@@ -24,18 +26,21 @@ public class MainMenu extends ScreenAdapter {
 
         guiCam = new OrthographicCamera(WarLock.V_WIDTH, WarLock.V_HEIGHT);
         guiCam.position.set(WarLock.V_WIDTH / 2, WarLock.V_HEIGHT / 2, 0);
+        /*
         soundBounds = new Rectangle(0, 0, 64, 64);
         playBounds = new Rectangle(160 - 150, 200 + 18, 300, 36);
         highscoresBounds = new Rectangle(160 - 150, 200 - 18, 300, 36);
         helpBounds = new Rectangle(160 - 150, 200 - 18 - 36, 300, 36);
         touchPoint = new Vector3();
+
+         */
     }
 
     public void update () {
         if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
             game.setScreen(new OfficeScreen(game));
         }
-
+/*
         if (Gdx.input.justTouched()) {
             guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
 
@@ -44,19 +49,19 @@ public class MainMenu extends ScreenAdapter {
                 game.setScreen(new OfficeScreen(game));
                 return;
             }
-            /*
+
             if (highscoresBounds.contains(touchPoint.x, touchPoint.y)) {
                 Assets.playSound(Assets.clickSound);
                 game.setScreen(new HighscoresScreen(game));
                 return;
             }
-             */
+
             if (helpBounds.contains(touchPoint.x, touchPoint.y)) {
                // Assets.playSound(Assets.clickSound);
                // game.setScreen(new HelpScreen(game));
                 return;
             }
-            /*
+
             if (soundBounds.contains(touchPoint.x, touchPoint.y)) {
                 Assets.playSound(Assets.clickSound);
                 Settings.soundEnabled = !Settings.soundEnabled;
@@ -65,8 +70,8 @@ public class MainMenu extends ScreenAdapter {
                 else
                     Assets.music.pause();
             }
-             */
         }
+            */
     }
 
     public void draw () {
