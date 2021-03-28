@@ -120,7 +120,7 @@ public class Wizard extends Sprite {
         //defining wizard's body properties
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(12 / WarLock.PPM);
+        shape.setRadius(14 / WarLock.PPM);
 
         fdef.shape = shape;
         b2body.createFixture(fdef);

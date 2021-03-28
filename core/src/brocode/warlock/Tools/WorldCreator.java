@@ -64,14 +64,7 @@ public class WorldCreator {
             //add this body to our box2d world
             body = world.createBody(bdef);
 
-            //setAsBox = define fixture
-            /*
-            shape.setAsBox((rect.getWidth() / 2) / WarLock.PPM, (rect.getHeight() / 2) / WarLock.PPM);
-            fdef.shape = shape;
 
-            body.createFixture(fdef);
-
-             */
         }
     /*
         //create ground bodies/fixtures

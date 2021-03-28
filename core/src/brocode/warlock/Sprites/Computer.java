@@ -4,8 +4,9 @@ import brocode.warlock.Screens.LoggingScreen;
 import brocode.warlock.WarLock;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
-
+/*
 public class Computer extends InteractiveTileObject{
+
     public Computer(LoggingScreen screen, Rectangle bounds){
         super(screen, bounds);
         fixture.setUserData(this);
@@ -14,9 +15,11 @@ public class Computer extends InteractiveTileObject{
 
     @Override
     public void onKeyPress(){
-        Gdx.app.log("Computer", "keypress");
+        //super(Gdx.app.log("Computer", "keypress"));
     }
 
 }
 
+
+ */
 
