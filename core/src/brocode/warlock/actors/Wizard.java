@@ -12,22 +12,26 @@ public class Wizard extends Actor {
     final float STEP = 1f;
     public enum PlayerMoveState {RIGHT, LEFT, UP, DOWN, IDLE}
     public PlayerMoveState moveState;
+    public PlayerMoveState currentState;
+    public PlayerMoveState previousState;
     private TextureRegion wizardStand;
     private Animation<TextureRegion> wizardRun;
     private float stateTimer;
 
     public Wizard(TextureAtlas atlas, String actorName) {
-        super(atlas.findRegion("isowizard"));
+        atlas.findRegion("isowizard");
+        currentState = PlayerMoveState.IDLE;
+        previousState = PlayerMoveState.IDLE;
         moveState = PlayerMoveState.IDLE;
         sprite = atlas.createSprite(actorName);
 
         // creates an array of texture regions to pass the constructor for the animations
         Array<TextureRegion> frames = new Array<TextureRegion>();
         for(int i = 1; i < 9; i++)
-            frames.add(new TextureRegion(getTexture(), i * 32, 0, 32, 32));
+            frames.add(new TextureRegion(sprite.getTexture(), i * 32, 0, 32, 32));
         wizardRun = new Animation(0.1f, frames);
         frames.clear();
-        wizardStand = new TextureRegion(getTexture(), 0, 0, 32, 32);
+        wizardStand = new TextureRegion(sprite.getTexture(), 0, 0, 32, 32);
 
         this.setWidth(sprite.getWidth());
         this.setHeight(sprite.getHeight());
@@ -92,6 +96,8 @@ public class Wizard extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
+        //TextureRegion currentFrame = currentAnimation.getKeyFrame(animationtime);
+        //batch.draw(currentFrame, x, y, width, height);
         sprite.draw(batch);
     }
 }

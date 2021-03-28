@@ -17,12 +17,14 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class OfficeScreen implements Screen {
     //Reference to our Game, used to set Screens
     private WarLock game;
+    protected Stage stage;
     private TextureAtlas atlas;
     private OrthographicCamera gamecam;
     private Viewport gamePort;
@@ -50,9 +52,9 @@ public class OfficeScreen implements Screen {
         atlas = new TextureAtlas("Wizard GFX/wizard.pack");
         this.game = game;
         //create cam used to follow wizard through cam world
-        gamecam = new OrthographicCamera();
+        createCamera();
+        initPlayer();
 
-        gamePort = new FitViewport(WarLock.V_WIDTH / WarLock.PPM, WarLock.V_HEIGHT / WarLock.PPM, gamecam);
         hud = new Hud(game.batch);
 
         //Load our map and setup our map renderer
@@ -69,13 +71,25 @@ public class OfficeScreen implements Screen {
         b2dr = new Box2DDebugRenderer();
 
         new WorldCreator(this);
-        player = new Wizard(atlas,"Player");
+
 
         music = WarLock.manager.get("audio/music/virusmusic.mp3", Music.class);
         music.setLooping(true);
         music.setVolume(mastervol);
         music.play();
 
+    }
+    private void initPlayer() {
+        player = new Wizard(atlas,"Player");
+        player.setSize(100,150);
+        player.setDebug(true);
+        stage.addActor(player);
+    }
+
+    private void createCamera(){
+        gamecam = new OrthographicCamera();
+        gamePort = new FitViewport(WarLock.V_WIDTH / WarLock.PPM, WarLock.V_HEIGHT / WarLock.PPM, gamecam);
+        stage = new Stage(gamePort);
     }
 
     public TextureAtlas getAtlas(){
@@ -149,7 +163,7 @@ public class OfficeScreen implements Screen {
         //open box to put all textures we want inside
         game.batch.begin();
         //giving sprite game batch to be drawn
-        player.draw(game.batch);
+        player.draw(game.batch,1);
 
         game.batch.end();
 
