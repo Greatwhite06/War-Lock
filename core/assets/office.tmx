@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="109">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="142">
  <tileset firstgid="1" name="MainTileMap" tilewidth="32" tileheight="32" tilecount="2262" columns="78">
   <image source="MainTileMap.png" width="2496" height="928"/>
  </tileset>
@@ -61,11 +61,34 @@
   <object id="83" x="673.333" y="94" width="31.3333" height="2.66667"/>
   <object id="84" x="738.667" y="93.3333" width="88.6667" height="3.33333"/>
   <object id="93" x="184" y="337.333" width="48" height="2"/>
-  <object id="94" x="180" y="178" width="56" height="2.66667"/>
   <object id="95" x="693.333" y="177.333" width="52.6667" height="3.33333"/>
-  <object id="96" x="436" y="112.667" width="56.6667" height="3.33333"/>
   <object id="104" x="183.75" y="575.25" width="48.25" height="2.5"/>
   <object id="108" x="439.25" y="349.75" width="50.25" height="3.25"/>
+  <object id="115" x="185" y="548.5" width="6" height="26.5"/>
+  <object id="116" x="227.5" y="547.5" width="5" height="27"/>
+  <object id="117" x="438" y="552" width="4.5" height="20.5"/>
+  <object id="118" x="481.5" y="553" width="6.5" height="20.5"/>
+  <object id="119" x="672" y="320" width="99" height="2.5"/>
+  <object id="120" x="768" y="321" width="4.5" height="31"/>
+  <object id="121" x="693.5" y="352" width="51.5" height="2.5"/>
+  <object id="122" x="695" y="320" width="3" height="31"/>
+  <object id="123" x="741" y="321" width="3.5" height="32"/>
+  <object id="124" x="450" y="339.5" width="29.5" height="9"/>
+  <object id="125" x="182.5" y="352.5" width="51" height="2.5"/>
+  <object id="126" x="182.5" y="320.5" width="5" height="33"/>
+  <object id="127" x="227.5" y="320.5" width="6.5" height="34"/>
+  <object id="128" x="184" y="191.5" width="47" height="2.5"/>
+  <object id="129" x="192" y="180.5" width="31.5" height="10"/>
+  <object id="130" x="439" y="128" width="50" height="2.5"/>
+  <object id="131" x="447.5" y="115" width="32" height="11.5"/>
+  <object id="132" x="673" y="94.5" width="31" height="10"/>
+  <object id="133" x="738.5" y="93.5" width="91" height="8"/>
+  <object id="134" x="64" y="97" width="128.5" height="6.5"/>
+  <object id="136" x="223" y="94.5" width="63.5" height="8.5"/>
+  <object id="137" x="155.5" y="318.5" width="100" height="2.5"/>
+  <object id="138" x="153" y="318" width="6" height="35.5"/>
+  <object id="139" x="123.5" y="352" width="34" height="3.5"/>
+  <object id="141" x="250.5" y="319" width="4.5" height="126.5"/>
  </objectgroup>
  <objectgroup id="6" name="computer"/>
 </map>
