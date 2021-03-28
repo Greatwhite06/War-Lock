@@ -94,6 +94,12 @@ public class OfficeScreen implements Screen {
             else
                 player.translateX(-0.3f);
         }
+
+        // FIXME: 3/27/2021 Pause menu implementation?
+        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE) || (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE))){
+                game.setScreen(new PauseMenu(game));
+        }
+
     }
 
     public void update(float dt){
