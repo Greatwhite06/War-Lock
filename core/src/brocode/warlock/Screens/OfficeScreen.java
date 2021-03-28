@@ -10,6 +10,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -42,7 +43,6 @@ public class OfficeScreen implements Screen {
     //Realizes wizard character
     private Wizard player;
     private Music music;
-
     //sets master volume
     public static float mastervol = .08f;
     //public void setMasterVolume(float i){mastervol = i;}
@@ -82,7 +82,7 @@ public class OfficeScreen implements Screen {
 
     private void createCamera(){
         gamecam = new OrthographicCamera();
-        gamePort = new FitViewport(WarLock.V_WIDTH / WarLock.PPM, WarLock.V_HEIGHT / WarLock.PPM, gamecam);
+        gamePort = new FitViewport(WarLock.V_WIDTH * 2 / WarLock.PPM, WarLock.V_HEIGHT * 2 / WarLock.PPM, gamecam);
     }
 
     public TextureAtlas getAtlas(){
@@ -94,15 +94,20 @@ public class OfficeScreen implements Screen {
     }
 
     public void handleInput(float dt){
-        if(Gdx.input.isKeyJustPressed(Input.Keys.UP))
-            player.b2body.applyLinearImpulse(new Vector2(0, 0.3f), player.b2body.getWorldCenter(), true);
-        if(Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
-            player.b2body.applyLinearImpulse(new Vector2(0, -0.3f), player.b2body.getWorldCenter(), true);
+        if((Gdx.input.isKeyPressed(Input.Keys.UP)) && player.b2body.getLinearVelocity().y <= 2)
+            player.b2body.applyLinearImpulse(new Vector2(0, 0.25f), player.b2body.getWorldCenter(), true);
+        if((Gdx.input.isKeyPressed(Input.Keys.DOWN)) && player.b2body.getLinearVelocity().y >= -2)
+            player.b2body.applyLinearImpulse(new Vector2(0, -0.25f), player.b2body.getWorldCenter(), true);
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2)
-            player.b2body.applyLinearImpulse(new Vector2(0.3f, 0), player.b2body.getWorldCenter(), true);
+            player.b2body.applyLinearImpulse(new Vector2(0.25f, 0), player.b2body.getWorldCenter(), true);
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= -2)
-            player.b2body.applyLinearImpulse(new Vector2(-0.3f, 0), player.b2body.getWorldCenter(), true);
+            player.b2body.applyLinearImpulse(new Vector2(-0.25f, 0), player.b2body.getWorldCenter(), true);
+/*
+        if (player.b2body.getLinearVelocity().x <= 0.2f){
+            player.b2body.setLinearVelocity(new Vector2(0, 0.0f));
+        }
 
+ */
         // FIXME: 3/27/2021 Pause menu implementation?
         /*
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE) || (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE))){
@@ -197,5 +202,6 @@ public class OfficeScreen implements Screen {
         world.dispose();
         b2dr.dispose();
         hud.dispose();
+        player.getTexture().dispose();
     }
 }

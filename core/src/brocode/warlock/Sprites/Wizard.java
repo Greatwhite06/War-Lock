@@ -2,10 +2,12 @@ package brocode.warlock.Sprites;
 
 import brocode.warlock.Screens.OfficeScreen;
 import brocode.warlock.WarLock;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ai.fsm.State;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 
@@ -22,6 +24,8 @@ public class Wizard extends Sprite {
     public State previousState;
     public World world;
     public Body b2body;
+    private Vector2 velocity = new Vector2();
+    private float speed = 60 * 2, gravity = 60 * 1.8f;
     private TextureRegion wizardStand;
     private Animation<TextureRegion>wizardRun;
     private float stateTimer;
@@ -122,4 +126,27 @@ public class Wizard extends Sprite {
         b2body.createFixture(fdef);
 
     }
+
+    public boolean keyDown(int keycode){
+        switch(keycode) {
+            case Input.Keys.W:
+                break;
+            case Input.Keys.A:
+                velocity.x = -speed;
+                break;
+            case Input.Keys.D:
+                velocity.x = speed;
+        }
+        return true;
+    }
+
+    public boolean KeyUP(int keycode){
+        switch(keycode) {
+            case Input.Keys.A:
+            case Input.Keys.D:
+                velocity.x = 0;
+        }
+        return true;
+    }
+
 }
