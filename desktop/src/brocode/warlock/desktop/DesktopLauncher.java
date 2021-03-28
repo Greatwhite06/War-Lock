@@ -20,8 +20,7 @@ public class DesktopLauncher {
 		new LwjglApplication(new WarLock(), config);
 
 		LoggingScreen test = new LoggingScreen();
-
-/*
+		/*
 		//This is just to test the output of the methods in VirusTypes. Can be deleted.
 		System.out.println(VirusTypes.wormsR());
 		System.out.println(VirusTypes.ransomWareR());
@@ -42,7 +41,8 @@ public class DesktopLauncher {
 		// Display the Circular LinkedList
 		tree.display(head);
 
- */
+		 */
+
 
 	}
 }
