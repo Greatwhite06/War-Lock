@@ -15,6 +15,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
@@ -48,6 +49,7 @@ public class OfficeScreen implements Screen {
     //public void setMasterVolume(float i){mastervol = i;}
 
     private ComputerObj network;
+    private int[] infectID;
 
     public OfficeScreen(WarLock game) {
 
@@ -74,6 +76,7 @@ public class OfficeScreen implements Screen {
         new WorldCreator(this);
         network = new ComputerObj(0);
         createNetwork(1);
+        recInfect(network,infectID);
 
         player = new Wizard(this);
 
@@ -85,18 +88,43 @@ public class OfficeScreen implements Screen {
 
     }
     private void createNetwork(int val){
+        System.out.print("Infected Computers ID: ");
+        for(int i =0; i < 3;i++){
+            infectID[i] = MathUtils.random(1,8);
+            System.out.print(infectID[i] + " ");
+        }
+        System.out.println();
+
         network.left = new ComputerObj(1);
-        network.middle = new ComputerObj(2);
-        network.right = new ComputerObj(3);
-        network.left.left= new ComputerObj(4);
-        network.left.middle = new ComputerObj(5);
-        network.left.right = new ComputerObj(6);
-        network.middle.left= new ComputerObj(7);
-        network.middle.middle = new ComputerObj(8);
-        network.middle.right = new ComputerObj(9);
-        network.right.left = new ComputerObj(10);
-        network.right.middle = new ComputerObj(11);
-        network.right.right = new ComputerObj(12);
+        if(network.left.val == infectID[0] || network.left.val == infectID[1] || network.left.val == infectID[2]){
+            network.left.VirusOnPC = true;
+        }
+        network.right = new ComputerObj(2);
+        if(network.left.val == infectID[0] || network.left.val == infectID[1] || network.left.val == infectID[2]){
+            network.left.VirusOnPC = true;
+        }
+        network.left.left= new ComputerObj(3);
+        network.left.right = new ComputerObj(4);
+        network.middle.left= new ComputerObj(5);
+        network.middle.right = new ComputerObj(6);
+        network.right.left = new ComputerObj(7);
+        network.right.right = new ComputerObj(8);
+    }
+
+    private void recInfect(ComputerObj computer, int[] infectID){
+        //base case: if left and right are null, go back
+        if(computer.left == null || computer.right == null) return;
+
+        //action: check each computer for infection possibility
+        for(int i = 0;i < 3; i++){
+            if (computer.val == infectID[i]){
+                computer.VirusOnPC = true;
+                break;
+            }
+        }
+        //recursion: check left and right
+        recInfect(computer.left, infectID);
+        recInfect(computer.right, infectID);
     }
 
     private void createCamera(){
