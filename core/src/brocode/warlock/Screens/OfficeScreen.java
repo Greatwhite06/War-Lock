@@ -8,9 +8,14 @@ import brocode.warlock.WarLock;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetDescriptor;
+import com.badlogic.gdx.assets.AssetLoaderParameters;
+import com.badlogic.gdx.assets.loaders.AssetLoader;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -20,8 +25,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import net.dermetfan.gdx.assets.AnnotationAssetManager;
 
 public class OfficeScreen implements Screen {
     //Reference to our Game, used to set Screens
@@ -84,7 +92,6 @@ public class OfficeScreen implements Screen {
         gamemusic.setLooping(true);
         gamemusic.setVolume(mastervol);
         gamemusic.play();
-
 
     }
     private void createNetwork(int val){
@@ -152,19 +159,6 @@ public class OfficeScreen implements Screen {
             player.b2body.setLinearDamping(10f);
         }
 
-
-        /*
-        if (player.b2body.getLinearVelocity().x > 0){
-
-        }
-
-        if ((player.b2body.getLinearVelocity().x < 0.2f) || (player.b2body.getLinearVelocity().y <= 0.2f)){
-            player.b2body.setLinearVelocity(new Vector2(0, 0.0f));
-        }
-
-         */
-
-
         // FIXME: 3/27/2021 Pause menu implementation?
         /*
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE) || (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE))){
@@ -175,7 +169,6 @@ public class OfficeScreen implements Screen {
 
     public void update(float dt){
         handleInput(dt);
-
         //for box2d to execute our physics simulation, we must tell it how many times to calculate per second
         //velocity and position affect how two bodies interact during a collision: higher numbers = longer but more precise
         //timeStep = 1/60 = 60 times per second
@@ -226,7 +219,6 @@ public class OfficeScreen implements Screen {
         //Set our batch to now draw what the Hud camera sees
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
-
     }
 
     @Override

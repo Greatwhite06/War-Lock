@@ -6,7 +6,17 @@ import com.badlogic.gdx.physics.box2d.*;
 public class WorldContactListener implements ContactListener { //what gets called when two figures in box2d collide with each other
     @Override
     public void beginContact(Contact contact) { //when two figures begin to collide
+        Fixture fixA = contact.getFixtureA();
+        Fixture fixB = contact.getFixtureB();
 
+        if(fixA.getUserData() == "head" || fixB.getUserData() == "head"){
+            Fixture head = fixA.getUserData() == "head" ? fixA : fixB;
+            Fixture object = head == fixA ? fixB : fixA;
+
+            if(object.getUserData() != null && InteractiveTileObject.class.isAssignableFrom(object.getUserData().getClass())){
+                ((InteractiveTileObject) object.getUserData()).onHeadHit();
+            }
+        }
     }
 
     @Override

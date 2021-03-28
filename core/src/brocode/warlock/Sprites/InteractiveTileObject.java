@@ -36,9 +36,12 @@ public abstract class InteractiveTileObject {
         //setAsBox = define fixture
         shape.setAsBox((bounds.getWidth() / 2) / WarLock.PPM, (bounds.getHeight() / 2) / WarLock.PPM);
         fdef.shape = shape;
+        fdef.isSensor = true;
         // capture barrier in fixture
         fixture = body.createFixture(fdef);
     }
+
+    public abstract void onHeadHit();
 
     public void setCategoryFilter(short filterBit){
         Filter filter = new Filter();

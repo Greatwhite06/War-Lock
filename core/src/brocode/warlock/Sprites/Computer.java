@@ -1,25 +1,31 @@
 package brocode.warlock.Sprites;
 
 import brocode.warlock.Screens.LoggingScreen;
+import brocode.warlock.Screens.OfficeScreen;
 import brocode.warlock.WarLock;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Rectangle;
-/*
-public class Computer extends InteractiveTileObject{
 
-    public Computer(LoggingScreen screen, Rectangle bounds){
+public class Computer extends InteractiveTileObject{
+    public Computer(OfficeScreen screen, Rectangle bounds){
         super(screen, bounds);
         fixture.setUserData(this);
         setCategoryFilter(WarLock.COMPUTER_BIT);
     }
 
     @Override
-    public void onKeyPress(){
-        //super(Gdx.app.log("Computer", "keypress"));
+    public void onHeadHit() {
+        Gdx.app.log("TEST", "Collision");
+        setCategoryFilter(WarLock.ACCESSED_BIT);
+        getCell().setTile(null);
+        System.out.println("THIS IS A TEST1");
+        if (Gdx.input.isKeyPressed(Input.Keys.E)){
+            System.out.println("THIS IS A TEST");
+            //game.setScreen(new OfficeScreen(game));
+        }
     }
-
 }
 
 
- */
 

@@ -1,6 +1,7 @@
 package brocode.warlock.Tools;
 
 import brocode.warlock.Screens.OfficeScreen;
+import brocode.warlock.Sprites.Computer;
 import brocode.warlock.WarLock;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
@@ -17,6 +18,9 @@ public class WorldCreator {
         PolygonShape shape = new PolygonShape();
         FixtureDef fdef = new FixtureDef();
         Body body;
+        Body computer;
+        Body papers;
+        Body mothercomputer;
 
         //wall boundaries
         for(MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)){
@@ -51,20 +55,14 @@ public class WorldCreator {
             fdef.shape = shape;
 
             body.createFixture(fdef);
+
         }
 
         //computer
-        for(MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)){
+        for(MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
-            //define the type of properties our body (the furniture) will contain
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2) / WarLock.PPM, (rect.getY() + rect.getHeight() / 2) / WarLock.PPM);
-
-            //add this body to our box2d world
-            body = world.createBody(bdef);
-
-
+            new Computer(screen, rect);
         }
 
         //papers
@@ -76,8 +74,11 @@ public class WorldCreator {
             bdef.position.set((rect.getX() + rect.getWidth() / 2) / WarLock.PPM, (rect.getY() + rect.getHeight() / 2) / WarLock.PPM);
 
             //add this body to our box2d world
-            body = world.createBody(bdef);
+            papers = world.createBody(bdef);
+            shape.setAsBox((rect.getWidth() / 2) / WarLock.PPM, (rect.getHeight() / 2) / WarLock.PPM);
+            fdef.isSensor = true;
 
+            papers.createFixture(fdef);
 
         }
 
@@ -90,8 +91,11 @@ public class WorldCreator {
             bdef.position.set((rect.getX() + rect.getWidth() / 2) / WarLock.PPM, (rect.getY() + rect.getHeight() / 2) / WarLock.PPM);
 
             //add this body to our box2d world
-            body = world.createBody(bdef);
+            mothercomputer = world.createBody(bdef);
+            shape.setAsBox((rect.getWidth() / 2) / WarLock.PPM, (rect.getHeight() / 2) / WarLock.PPM);
+            fdef.isSensor = true;
 
+            mothercomputer.createFixture(fdef);
 
         }
     /*

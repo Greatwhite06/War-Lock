@@ -125,6 +125,16 @@ public class Wizard extends Sprite {
         fdef.shape = shape;
         b2body.createFixture(fdef);
 
+        CircleShape head = new CircleShape();
+        //where?
+        head.setRadius(14 / WarLock.PPM);
+        fdef.shape = head;
+        // when you create a fixture definition that is a sensor, it no longer collides with anything in the world, it is just available for you to query for user data
+        fdef.isSensor = true;
+
+        // this will uniquely identify this head fixture as "head" so we can pull this in the future to see if this fixture is mario's head
+        b2body.createFixture(fdef).setUserData("head");
+
     }
 
     public boolean keyDown(int keycode){
