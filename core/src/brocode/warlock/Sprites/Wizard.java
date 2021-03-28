@@ -92,6 +92,15 @@ public class Wizard extends Sprite {
             return State.STANDING;
     }
 
+    public boolean gameOverReached(){
+        return true;
+        // FIXME: 3/27/2021  add condition for game over being reached and return
+    }
+
+    public float getStateTimer(){
+        return stateTimer;
+    }
+
     //Wizard's body and fixture definitions
     public void defineWizard(){
         BodyDef bdef = new BodyDef();

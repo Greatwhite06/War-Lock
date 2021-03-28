@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class WarLock extends Game {
 	public static final int V_WIDTH = 400;
 	public static final int V_HEIGHT = 208;
+	public static final String TITLE = "W A R L O C K", VERSION = "1.0";
 
 	// Pixels per meter: use this float (divisional reasons) to scale everything that has pixel size (positional locations, viewports, character models)
 	public static final float PPM = 100;
@@ -30,6 +31,7 @@ public class WarLock extends Game {
 	public void create() {
 		batch = new SpriteBatch();
 		manager = new AssetManager();
+
 
 		setScreen(new OfficeScreen(this));
 	}
