@@ -8,6 +8,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Rectangle;
 
+import javax.swing.*;
+
 public class Computer extends InteractiveTileObject{
     public Computer(OfficeScreen screen, Rectangle bounds){
         super(screen, bounds);
@@ -19,7 +21,6 @@ public class Computer extends InteractiveTileObject{
     public void onHeadHit() {
         Gdx.app.log("TEST", "Collision");
         setCategoryFilter(WarLock.ACCESSED_BIT);
-        getCell().setTile(null);
         if (Gdx.input.isKeyPressed(Input.Keys.E)){
 
         }
