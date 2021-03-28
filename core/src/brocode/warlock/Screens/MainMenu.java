@@ -51,6 +51,7 @@ public class MainMenu extends ScreenAdapter {
 
     public void update () {
         if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
+            menumusic.stop();
             game.setScreen(new OfficeScreen(game));
         }
 /*
