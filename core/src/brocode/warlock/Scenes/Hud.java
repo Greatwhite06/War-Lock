@@ -43,8 +43,8 @@ public class Hud implements Disposable {
         countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         scoreLabel = new Label(String.format("%06d", score), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         timeLabel = new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        levelLabel = new Label("level", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        worldLabel = new Label("WORLD", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        //levelLabel = new Label("level", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        //worldLabel = new Label("WORLD", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         wizardLabel = new Label("WIZARD", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
         table.add(wizardLabel).expandX().padTop(10);

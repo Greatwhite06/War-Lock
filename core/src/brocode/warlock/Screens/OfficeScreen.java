@@ -81,20 +81,23 @@ public class OfficeScreen implements Screen {
 
     }
 
-    public void handleInput(float dt){
-        if(Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W))
-            player.b2body.applyLinearImpulse(new Vector2(0, 0.1f), player.b2body.getWorldCenter(), true);
-        if(Gdx.input.isKeyJustPressed(Input.Keys.DOWN) || Gdx.input.isKeyJustPressed(Input.Keys.S))
-            player.b2body.applyLinearImpulse(new Vector2(0, -0.1f), player.b2body.getWorldCenter(), true);
-        if((Gdx.input.isKeyPressed(Input.Keys.RIGHT) || Gdx.input.isKeyJustPressed(Input.Keys.D)) && player.b2body.getLinearVelocity().x <= 2)
-            player.b2body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2body.getWorldCenter(), true);
-        if((Gdx.input.isKeyPressed(Input.Keys.LEFT) || Gdx.input.isKeyJustPressed(Input.Keys.A))&& player.b2body.getLinearVelocity().x >= -2)
-            player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);
-
+    public void handleInput(){
+        if(Gdx.input.isKeyPressed(Input.Keys.D)) {
+            if (Gdx.input.isKeyPressed(Input.Keys.D) && (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)))
+                player.translateX(0.1f);
+            else
+                player.translateX(0.3f);
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.A)) {
+            if (Gdx.input.isKeyPressed(Input.Keys.A) && (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)))
+                player.translateX(-0.1f);
+            else
+                player.translateX(-0.3f);
+        }
     }
 
     public void update(float dt){
-        handleInput(dt);
+        handleInput();
 
         //for box2d to execute our physics simulation, we must tell it how many times to calculate per second
         //velocity and position affect how two bodies interact during a collision: higher numbers = longer but more precise
@@ -102,7 +105,6 @@ public class OfficeScreen implements Screen {
         world.step(1/60f, 6, 2);
 
         player.update(dt);
-
         hud.update(dt);
 
         //attach our gamecam to our players.x coordinate

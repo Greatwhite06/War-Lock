@@ -37,7 +37,7 @@ public class Wizard extends Sprite {
 
         // creates an array of texture regions to pass the constructor for the animations
         Array<TextureRegion> frames = new Array<TextureRegion>();
-        for(int i = 1; i < 4; i++)
+        for(int i = 1; i < 9; i++)
             frames.add(new TextureRegion(getTexture(), i * 32, 0, 32, 32));
         wizardRun = new Animation(0.1f, frames);
         frames.clear();
