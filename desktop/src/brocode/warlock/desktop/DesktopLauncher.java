@@ -6,12 +6,16 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import brocode.warlock.WarLock;
 import brocode.warlock.VirusTypes;
 import brocode.warlock.CircularTree;
+import brocode.warlock.Screens.LoggingScreen;
 import java.io.IOException;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		new LwjglApplication(new WarLock(), config);
+
+		LoggingScreen test = new LoggingScreen();
+
 /*
 		//This is just to test the output of the methods in VirusTypes. Can be deleted.
 		System.out.println(VirusTypes.wormsR());
