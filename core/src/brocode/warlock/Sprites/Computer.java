@@ -19,7 +19,7 @@ public class Computer extends InteractiveTileObject{
 
     @Override
     public void onHeadHit() {
-        Gdx.app.log("TEST", "Collision");
+        //Gdx.app.log("TEST", "Collision");
         setCategoryFilter(WarLock.ACCESSED_BIT);
         if (Gdx.input.isKeyPressed(Input.Keys.E)){
 
