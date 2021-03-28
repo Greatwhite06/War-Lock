@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
+import java.awt.*;
+
 public class WarLock extends Game {
 	public static final int V_WIDTH = 400;
 	public static final int V_HEIGHT = 208;
@@ -56,7 +58,6 @@ public class WarLock extends Game {
 		//tells GDX to listen for keypresses
 		Gdx.input.setInputProcessor(controller);
 
-
 		//Loads in texture for background and sizes it
 		manager = new AssetManager();
 		background = loadTexture("Wizard GFX/background.png");
@@ -83,9 +84,7 @@ public class WarLock extends Game {
 
 		manager.finishLoading();
 
-
 		setScreen(new MainMenu(this));
-
 	}
 
 	@Override

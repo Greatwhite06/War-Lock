@@ -1,0 +1,10 @@
+INFORMATION: <Data.txt was opened>
+INFORMATION: <catz.png was opened>
+INFORMATION: <Meszy_bessy_bigBombDessy.jdk was updated>
+INFORMATION: <FaceboukMessenger.exe was opened>
+INFORMATION: <Spotiify.exe was launched>
+INFORMATION: <Gooogle.exe was launched>
+INFORMATION: <Gooogle Tab created>
+INFORMATION: <User clicked on suspicious ad>
+WARNING: <107 files copied from Unknown source>
+INFORMATION: <User opened Log>

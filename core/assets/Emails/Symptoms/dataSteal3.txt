@@ -1,0 +1,6 @@
+INFORMATION: <User opened Youttube>
+INFORMATION: <User visited http://rowdyhacks.org>
+INFORMATION: <User spammed community chats at http://rowdyhacks.org>
+WARNING: <UNKNOWN IP ACCESSED USER DEVICE>
+WARNING: <UNKNOWN IP <REDACTED> +100 CRITICAL FILES>
+INFORMATION: <Deleted "COPIED" from log>

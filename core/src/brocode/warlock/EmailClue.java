@@ -11,7 +11,7 @@ import java.util.Scanner;
 import java.lang.String;
 
 public class EmailClue {
-    /*
+
     private List<String> Body = new ArrayList<>();
     private List<String> Reply = new ArrayList<>();
 
@@ -56,5 +56,5 @@ public class EmailClue {
         return Reply;
     }
 
-     */
+
 }

@@ -1,0 +1,6 @@
+INFORMATION: <User opened an unsecure link>
+WARNING: <USER IS UNDER ATTACK>
+WARNING: <RUN>
+WARNING: <HIDE>
+WARNING: <FIGHT>
+INFORMATION: <Also almost all your data was stolen>

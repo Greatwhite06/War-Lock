@@ -9,7 +9,7 @@ import java.util.List;
 import java.lang.String;
 
 public class VirusTypes {
-    /*
+
     private enum type {TROJAN, WORMS, RANSOMWARE}
     private static File virusFile;
     private static String trojanRead;
@@ -44,7 +44,4 @@ public class VirusTypes {
         byte[] encoded = Files.readAllBytes(Paths.get(path));
         return new String(encoded, encoding);
     }
-
-     */
-
 }
