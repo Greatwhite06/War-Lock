@@ -4,6 +4,7 @@ import brocode.warlock.WarLock;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
@@ -13,6 +14,7 @@ import com.badlogic.gdx.math.Vector3;
 public class MainMenu extends ScreenAdapter {
     WarLock game;
     OrthographicCamera guiCam;
+    private Music music;
     /*
     Rectangle soundBounds;
     Rectangle playBounds;
@@ -34,6 +36,9 @@ public class MainMenu extends ScreenAdapter {
         touchPoint = new Vector3();
 
          */
+        //music = WarLock.manager.get("audio/music/menu music.wav", Music.class);
+        //music.setLooping(true);
+        //music.play();
     }
 
     public void update () {
