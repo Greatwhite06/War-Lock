@@ -26,12 +26,13 @@ public class WarLock extends Game {
 
 	public static Texture wizLink;
 	public static Texture titleLink;
+	public static Texture spaceLink;
 	public static TextureRegion wizTexture;
-	public static TextureRegion pauseMenu;
+	public static TextureRegion spaceTexture;
 	public static TextureRegion ready;
 	public static TextureRegion gameOver;
 	public static TextureRegion highScoresRegion;
-	public static TextureRegion logo;
+	public static TextureRegion titleTexture;
 	public static TextureRegion soundOn;
 	public static TextureRegion soundOff;
 	public static TextureRegion arrow;
@@ -53,12 +54,14 @@ public class WarLock extends Game {
 		//loads in texture for single wizard and gives it a size
 		wizLink = loadTexture("Wizard GFX/SingleWizard.png");
 		titleLink = loadTexture("Wizard GFX/War-Lock.png");
+		spaceLink = loadTexture("Wizard GFX/Press-Space-to-Start.png");
+
 		wizTexture = new TextureRegion(wizLink, 0, 0, 32, 32);
-		//pauseMenu = new TextureRegion(items, 224, 128, 192, 96);
+		spaceTexture = new TextureRegion(spaceLink, 0, 0, 212, 21);
 		//ready = new TextureRegion(items, 320, 224, 192, 32);
 		//gameOver = new TextureRegion(items, 352, 256, 160, 96);
 		//highScoresRegion = new TextureRegion(WarLock.items, 0, 257, 300, 110 / 3);
-		logo = new TextureRegion(titleLink, 0, 0, 140, 25);
+		titleTexture = new TextureRegion(titleLink, 0, 0, 138, 22);
 		//soundOff = new TextureRegion(items, 0, 0, 64, 64);
 		//soundOn = new TextureRegion(items, 64, 0, 64, 64);
 		//arrow = new TextureRegion(items, 0, 64, 64, 64);
