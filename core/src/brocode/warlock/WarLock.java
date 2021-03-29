@@ -98,7 +98,6 @@ public class WarLock extends Game {
 		titleLink.dispose();
 		infoLink.dispose();
 		background.dispose();
-
 	}
 
 
