@@ -34,7 +34,7 @@ public class Hud implements Disposable {
     Texture computerImg = new Texture(Gdx.files.internal("Emails/Windows-98-desktop-notepad-640-480.png"));
 
     public Hud(SpriteBatch sb){
-        worldTimer = 300;
+        worldTimer = 100;
         timeCount = 0;
 
         viewport = new FitViewport(WarLock.V_WIDTH + 200, WarLock.V_HEIGHT, new OrthographicCamera());

@@ -174,7 +174,7 @@ public class OfficeScreen implements Screen {
         //for box2d to execute our physics simulation, we must tell it how many times to calculate per second
         //velocity and position affect how two bodies interact during a collision: higher numbers = longer but more precise
         //timeStep = 1/60 = 60 times per second
-        world.step(1/60f, 6, 2);
+        world.step(1/10f, 6, 2);
 
         player.update(dt);
         hud.update(dt);

@@ -23,6 +23,7 @@ public class Computer extends InteractiveTileObject{
         //setCategoryFilter(WarLock.ACCESSED_BIT);
         if (Gdx.input.isKeyPressed(Input.Keys.E)){
             System.out.println("Computer Accessed");
+
         }
     }
 }
