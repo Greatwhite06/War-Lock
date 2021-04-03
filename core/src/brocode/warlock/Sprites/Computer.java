@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Rectangle;
 import javax.swing.*;
 
 public class Computer extends InteractiveTileObject{
+
     public Computer(OfficeScreen screen, Rectangle bounds){
         super(screen, bounds);
         fixture.setUserData(this);
@@ -20,11 +21,8 @@ public class Computer extends InteractiveTileObject{
     @Override
     public void onHeadHit() {
         Gdx.app.log("Computer", "Collision");
+        WarLock.inRange = true;
         //setCategoryFilter(WarLock.ACCESSED_BIT);
-        if (Gdx.input.isKeyPressed(Input.Keys.E)){
-            System.out.println("Computer Accessed");
-
-        }
     }
 }
 

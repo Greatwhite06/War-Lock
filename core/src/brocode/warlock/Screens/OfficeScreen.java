@@ -33,7 +33,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import net.dermetfan.gdx.assets.AnnotationAssetManager;
 
 public class OfficeScreen implements Screen {
-    //Reference to our Game, used to set Screens
+    // Reference to our Game, used to set Screens
     private WarLock game;
     protected Stage stage;
     private TextureAtlas atlas;
@@ -147,7 +147,6 @@ public class OfficeScreen implements Screen {
     public void show() {
     }
 
-
     public void handleInput(float dt){
         if(((Gdx.input.isKeyPressed(Input.Keys.UP)) || (Gdx.input.isKeyPressed(Input.Keys.W))) && player.b2body.getLinearVelocity().y <= 2)
             player.b2body.applyLinearImpulse(new Vector2(0, 0.25f), player.b2body.getWorldCenter(), true);
@@ -174,7 +173,7 @@ public class OfficeScreen implements Screen {
         //for box2d to execute our physics simulation, we must tell it how many times to calculate per second
         //velocity and position affect how two bodies interact during a collision: higher numbers = longer but more precise
         //timeStep = 1/60 = 60 times per second
-        world.step(1/10f, 6, 2);
+        world.step(1/60f, 6, 2);
 
         player.update(dt);
         hud.update(dt);

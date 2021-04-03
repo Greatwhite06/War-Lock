@@ -25,6 +25,7 @@ public class WarLock extends Game {
 	public static final short COMPUTER_BIT = 8;
 	public static final short ACCESSED_BIT = 16;
 	public SpriteBatch batch;
+	public static boolean inRange = false;
 
 	public static Texture background;
 	public static TextureRegion backgroundRegion;

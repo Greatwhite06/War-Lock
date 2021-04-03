@@ -62,6 +62,7 @@ public class WorldCreator {
         for(MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
+
             new Computer(screen, rect);
         }
 
